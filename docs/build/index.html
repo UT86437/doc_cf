@@ -41,21 +41,22 @@
             
   <section id="documentazione-ce-feste">
 <h1>Documentazione CE-FeSTE<a class="headerlink" href="#documentazione-ce-feste" title="Link to this heading">¶</a></h1>
-<p>Credito Emiliano - Feature Selection, Transformation and Elimination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori:</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>C**redito <a href="#id3"><span class="problematic" id="id4">**</span></a>E**miliano -  <a href="#id5"><span class="problematic" id="id6">**</span></a>Fe**ature <a href="#id7"><span class="problematic" id="id8">**</span></a>S**election, <a href="#id9"><span class="problematic" id="id10">**</span></a>T**ransformation and <a href="#id11"><span class="problematic" id="id12">**</span></a>E**limination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori. I moduli principali sono:</p>
+<p><strong>Analisi delle Feature:</strong> Rappresenta la classe madre dei moduli di selezione ed eliminazione. Viene fatta un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di statistiche descrittive (media, deviazione standard, percentili e valori minimi e massimi) e la gestione (ottenimento e settaggio) degli attributi della classe.</p>
 <p><strong>Selezione delle Feature:</strong> Viene fatto un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Controllo di feature costanti.</p></li>
 <li><p>Controlli di feature con valori mancanti.</p></li>
-<li><p>Controllo di feature con basso numero di valori.</p></li>
+<li><p>Controllo di feature con basso numero di valori unici.</p></li>
 <li><p>Controllo di feature quasi costanti.</p></li>
 <li><p>Controllo di feature correlate.</p></li>
-<li><p>Controlli di feature collineari.</p></li>
+<li><p>Controllo di feature collineari.</p></li>
 <li><p>Controllo di feature con distribuzione diversa tra train e test.</p></li>
 <li><p>Controllo di feature con potere esplicativo nei confronti del target basso.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Eliminazione delle Feature:</strong> Viene fatta un’eliminazione delle feature in-training, calcolando ad ogni addestramento del modello metriche di importanza (valori SHAP) utilizzate come metodo di selezione per l’eliminazione di tali feature, utilizzando la tecnica RFE (Recursive Feature Elimination).</p>
+<p><strong>Eliminazione delle Feature:</strong> Viene fatta un’eliminazione delle feature in-training, utilizzando una tecnica RFE (Recursive Feature Elimination) basata sui valori SHAP su un modello addestrato ricorsivamente.</p>
 <p><strong>Trasformazione delle Feature:</strong> Viene fatta una trasformazione delle feature in base alla classe di Transformer scelta. Le trasformazioni sui dati possono essere:</p>
 <blockquote>
 <div><ul class="simple">
@@ -64,10 +65,9 @@
 <li><p>Ridenominazione di colonne.</p></li>
 <li><p>Conversioni di colonne in valori binari.</p></li>
 <li><p>Trasformazione logaritmica dei valori.</p></li>
-<li><p>Trasformazione degli outlier basata sui quantili.</p></li>
+<li><p>Gestione degli outlier basata sui quantili con tecniche di capping.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Analisi delle Feature:</strong> Viene fatta un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di metriche relative ai valori (media, deviazione standard, percentili e valori minimi e massimi). I metodi contenuti all’interno della classe di questo modulo possono essere utilizzati anche dalle classe dei moduli di Selezione ed Eliminazione.</p>
 <section id="moduli">
 <h2>Moduli<a class="headerlink" href="#moduli" title="Link to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
