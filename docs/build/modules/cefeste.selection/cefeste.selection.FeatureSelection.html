@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureSelection &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FeatureSelection.__init__" href="cefeste.selection.FeatureSelection.__init__.html" />
+    <link rel="prev" title="selection" href="../cefeste.selection.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.__init__.html" title="FeatureSelection.__init__"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cefeste.selection.html" title="selection"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.selection.html" accesskey="U">selection</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureselection">
+<h1>FeatureSelection<a class="headerlink" href="#featureselection" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cefeste.selection.FeatureSelection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cefeste.selection.</span></span><span class="sig-name descname"><span class="pre">FeatureSelection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_to_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algo_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_train_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_unique_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pct_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pct_mfv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_bin_min_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">explanatory_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlation_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_rule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'random'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vif_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collinear_optimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_selection_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_cat_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection" title="Link to this definition">¶</a></dt>
+<dd><p>Classe utilizzata per implementare tecniche di selezione delle feature.</p>
+<p>Questa classe estende la classe <cite>FeatureAnalysis</cite> per fornire una pipeline configurabile per la selezione delle feature. Applica una serie di filtri univariati e multivariati per identificare e rimuovere le feature che non rispettano vari criteri di selezione.</p>
+<dl class="simple">
+<dt>Filtri Applicati:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Constant Features</strong>:</dt><dd><p>Identifica e rimuove le feature che presentano un unico valore costante in tutto il dataset (o nel set di training). Parametri rilevanti: Nessuno specifico, agisce sulla natura della feature.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Missing Features</strong>:</dt><dd><p>Identifica e rimuove le feature che superano una soglia definita di valori mancanti. Parametri rilevanti: <cite>max_pct_missing</cite> (default 0.9).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Highly Concentrated Features</strong>:</dt><dd><p>Identifica e rimuove le feature in cui un singolo valore (il più frequente) supera una certa percentuale del totale delle osservazioni. Parametri rilevanti: <cite>max_pct_mfv</cite> (default 0.95).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Low Values Features</strong>:</dt><dd><p>Identifica e rimuove le feature che hanno un numero di valori unici inferiore a una soglia specificata. Utile per rimuovere feature quasi costanti o con cardinalità troppo bassa per essere informative. Parametri rilevanti: <cite>min_unique_val</cite> (default 3).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Unstable Features (PSI)</strong>:</dt><dd><p>Identifica e rimuove le feature la cui distribuzione cambia significativamente tra diversi campioni di dati (es. training vs. test, o periodi temporali diversi), utilizzando il Population Stability Index (PSI). Richiede la definizione di <cite>sample_col</cite>. Parametri rilevanti: <cite>max_psi</cite> (default 0.2), <cite>psi_nbins</cite> (default 20), <cite>psi_bin_min_pct</cite> (default 0.02).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Unexplanatory Features</strong>:</dt><dd><p>Identifica e rimuove le feature che mostrano un basso potere esplicativo nei confronti della variabile target. La metrica di valutazione dipende da <cite>algo_type</cite> (AUC per classificazione, R-squared per regressione). Richiede la definizione di <cite>target_col</cite>. Parametri rilevanti: <cite>explanatory_threshold</cite> (default 0.05), <cite>algo_type</cite> (default “auto”), <cite>dim_cat_threshold</cite> (default 10).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Correlated Features</strong>:</dt><dd><p>Identifica e rimuove le feature che sono altamente correlate con altre feature. Tra una coppia di feature correlate, una viene rimossa in base a <cite>selection_rule</cite> (es. casualmente, o quella con potere esplicativo sul target minore). Parametri rilevanti: <cite>correlation_threshold</cite> (default 0.95), <cite>selection_rule</cite> (default “random”), <cite>random_state</cite> (default 42).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Collinear Features (VIF)</strong>:</dt><dd><p>Identifica e rimuove le feature numeriche che sono linearmente dipendenti da altre feature numeriche, utilizzando il Variance Inflation Factor (VIF). Aiuta a mitigare problemi di multicollinearità. Parametri rilevanti: <cite>vif_threshold</cite> (default 5), <cite>collinear_optimize</cite> (default <cite>False</cite>).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>La classe tiene traccia delle feature rimosse e del motivo della rimozione, fornendo report dettagliati.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.__init__.html#cefeste.selection.FeatureSelection.__init__" title="cefeste.selection.FeatureSelection.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<td><p>Inizializza l'oggetto FeatureSelection con dati e parametri di configurazione.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.eda.html#cefeste.selection.FeatureSelection.eda" title="cefeste.selection.FeatureSelection.eda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eda</span></code></a></p></td>
+<td><p>Genera un'analisi esplorativa dei dati (EDA) di base.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_collinear_feature_optimized.html#cefeste.selection.FeatureSelection.find_collinear_feature_optimized" title="cefeste.selection.FeatureSelection.find_collinear_feature_optimized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_collinear_feature_optimized</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature collineari (basato su VIF).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_constant_features.html#cefeste.selection.FeatureSelection.find_constant_features" title="cefeste.selection.FeatureSelection.find_constant_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_constant_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature costanti.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_correlated_features.html#cefeste.selection.FeatureSelection.find_correlated_features" title="cefeste.selection.FeatureSelection.find_correlated_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_correlated_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature altamente correlate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_high_topcat_features.html#cefeste.selection.FeatureSelection.find_high_topcat_features" title="cefeste.selection.FeatureSelection.find_high_topcat_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_high_topcat_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature  altamente concentrate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_low_nvalues_features.html#cefeste.selection.FeatureSelection.find_low_nvalues_features" title="cefeste.selection.FeatureSelection.find_low_nvalues_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_low_nvalues_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature con un basso numero di valori unici.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_missing_features.html#cefeste.selection.FeatureSelection.find_missing_features" title="cefeste.selection.FeatureSelection.find_missing_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_missing_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature con troppi valori mancanti.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_not_explanatory.html#cefeste.selection.FeatureSelection.find_not_explanatory" title="cefeste.selection.FeatureSelection.find_not_explanatory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_not_explanatory</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature non esplicative rispetto al target.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.find_unstable_psi_features.html#cefeste.selection.FeatureSelection.find_unstable_psi_features" title="cefeste.selection.FeatureSelection.find_unstable_psi_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_unstable_psi_features</span></code></a></p></td>
+<td><p>Esegue solo il filtro per le feature instabili (basato su PSI).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.get_X_original.html#cefeste.selection.FeatureSelection.get_X_original" title="cefeste.selection.FeatureSelection.get_X_original"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_X_original</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> originale contenente solo le feature inizialmente considerate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.get_X_reduced.html#cefeste.selection.FeatureSelection.get_X_reduced" title="cefeste.selection.FeatureSelection.get_X_reduced"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_X_reduced</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> contenente solo le feature finali selezionate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.get_db_filtered.html#cefeste.selection.FeatureSelection.get_db_filtered" title="cefeste.selection.FeatureSelection.get_db_filtered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_db_filtered</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> originale senza le feature eliminate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.get_params.html#cefeste.selection.FeatureSelection.get_params" title="cefeste.selection.FeatureSelection.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a></p></td>
+<td><p>Restituisce il valore di uno o più attributi della classe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.make_funnel.html#cefeste.selection.FeatureSelection.make_funnel" title="cefeste.selection.FeatureSelection.make_funnel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_funnel</span></code></a></p></td>
+<td><p>Restituisce un <cite>DataFrame</cite> che riassume il funnel di selezione delle feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.make_report.html#cefeste.selection.FeatureSelection.make_report" title="cefeste.selection.FeatureSelection.make_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_report</span></code></a></p></td>
+<td><p>Genera un report completo che dettaglia lo stato di ogni feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.run.html#cefeste.selection.FeatureSelection.run" title="cefeste.selection.FeatureSelection.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a></p></td>
+<td><p>Esegue la pipeline di selezione delle feature in base ai filtri e ai parametri configurati.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.selection.FeatureSelection.set_params.html#cefeste.selection.FeatureSelection.set_params" title="cefeste.selection.FeatureSelection.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a></p></td>
+<td><p>Imposta il valore di uno o più attributi della classe.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureSelection</a><ul>
+<li><a class="reference internal" href="#cefeste.selection.FeatureSelection"><code class="docutils literal notranslate"><span class="pre">FeatureSelection</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../cefeste.selection.html"
+                          title="previous chapter">selection</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cefeste.selection.FeatureSelection.__init__.html"
+                          title="next chapter">FeatureSelection.__init__</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/cefeste.selection/cefeste.selection.FeatureSelection.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.__init__.html" title="FeatureSelection.__init__"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../cefeste.selection.html" title="selection"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.selection.html" >selection</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

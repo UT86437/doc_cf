@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureSelection.find_high_topcat_features &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FeatureSelection.find_low_nvalues_features" href="cefeste.selection.FeatureSelection.find_low_nvalues_features.html" />
+    <link rel="prev" title="FeatureSelection.find_correlated_features" href="cefeste.selection.FeatureSelection.find_correlated_features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.find_low_nvalues_features.html" title="FeatureSelection.find_low_nvalues_features"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.find_correlated_features.html" title="FeatureSelection.find_correlated_features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.selection.html" >selection</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.selection.FeatureSelection.html" accesskey="U">FeatureSelection</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.find_high_topcat_features</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureselection-find-high-topcat-features">
+<h1>FeatureSelection.find_high_topcat_features<a class="headerlink" href="#featureselection-find-high-topcat-features" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.selection.FeatureSelection.find_high_topcat_features">
+<span class="sig-prename descclassname"><span class="pre">FeatureSelection.</span></span><span class="sig-name descname"><span class="pre">find_high_topcat_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection.find_high_topcat_features" title="Link to this definition">¶</a></dt>
+<dd><p>Esegue solo il filtro per le feature  altamente concentrate.</p>
+<p>Questo metodo è un wrapper attorno al metodo <cite>run</cite>, configurato per attivare specificamente il filtro delle feature altamente concentrate e disabilitare tutti gli altri filtri. Aggiorna lo stato dell’istanza in base ai risultati di questo singolo filtro.</p>
+<p>Questa funzione identifica le colonne dove un singolo valore (il valore più frequente) appare in una percentuale eccessivamente alta di osservazioni. Per ogni colonna, calcola la frequenza di ogni suo valore. Se questa frequenza supera la soglia specificata (<cite>max_pct_mfv</cite>, default 0,95), il nome della colonna viene aggiunto alla lista dei risultati.</p>
+<p>Dopo l’applicazione del filtro vengono modificati gli attributi della classe con la selezione effettuata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Argomenti keyword aggiuntivi per sovrascrivere i parametri dell’istanza per questa esecuzione.</p>
+</dd>
+</dl>
+<p><strong>Dati utilizzati per gli esempi:</strong></p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">db_test_filters</span>
+</pre></div>
+</div>
+<style>
+   /* Stile base per la tabella con la nostra classe specifica */
+   .jupyter-style-table {
+       border-collapse: collapse; /* Bordi uniti */
+       margin: 1em 0; /* Margine sopra/sotto */
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font simile a Jupyter */
+       font-size: 0.9em; /* Dimensione font leggermente ridotta */
+       border: 1px solid #d3d3d3; /* Bordo esterno leggero */
+       width: auto; /* Larghezza basata sul contenuto */
+       max-width: 100%; /* Non superare il contenitore */
+       overflow-x: auto; /* Abilita lo scroll orizzontale se necessario (meglio sul wrapper, ma ok qui) */
+       display: block; /* Necessario per far funzionare overflow-x su una tabella */
+   }
+
+   /* Stile per le celle dell'header (th) */
+   .jupyter-style-table thead th {
+       background-color: #f5f5f5; /* Sfondo grigio chiaro per header */
+       font-weight: bold; /* Grassetto */
+       padding: 8px 10px; /* Padding interno */
+       text-align: right; /* Allineamento testo (spesso a destra per numeri/default) */
+       border-bottom: 1px solid #d3d3d3; /* Linea sotto l'header */
+       vertical-align: bottom; /* Allineamento verticale */
+   }
+
+   /* Stile per le celle dei dati (td) */
+   .jupyter-style-table tbody td {
+       padding: 6px 10px; /* Padding interno */
+       text-align: right; /* Allineamento testo (aggiusta se hai testo a sinistra) */
+       border-right: 1px solid #d3d3d3; /* Linea verticale tra celle (opzionale) */
+       border-top: 1px solid #d3d3d3; /* Linea orizzontale tra righe */
+       vertical-align: middle; /* Allineamento verticale */
+   }
+   .jupyter-style-table tbody td:last-child {
+       border-right: none; /* Rimuovi bordo destro sull'ultima cella */
+   }
+
+   /* Stile per l'header dell'indice (se presente) */
+   .jupyter-style-table thead th.blank { /* Header vuoto sopra l'indice */
+       background-color: white;
+       border: none;
+   }
+   .jupyter-style-table tbody th { /* Celle dell'indice nel body */
+       padding: 6px 10px;
+       text-align: right;
+       font-weight: normal;
+       border-right: 1px solid #d3d3d3;
+       border-top: 1px solid #d3d3d3;
+       background-color: #f5f5f5; /* Sfondo leggero per indice */
+   }
+
+
+   /* Striping delle righe (alternanza colori) */
+   .jupyter-style-table tbody tr:nth-child(even) {
+       background-color: #f9f9f9; /* Sfondo molto leggero per righe pari */
+   }
+
+   /* Effetto Hover (cambio colore al passaggio del mouse) */
+   .jupyter-style-table tbody tr:hover {
+       background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
+   }
+</style>
+<table border="0" class="jupyter-style-table"><thead><tr style="text-align: right;"><th></th><th>feature_A</th><th>feature_B</th><th>feature_C</th></tr></thead><tbody><tr><th>0</th><td>A</td><td>-54.734074</td><td>Z</td></tr><tr><th>1</th><td>A</td><td>68.041339</td><td>W</td></tr><tr><th>2</th><td>A</td><td>-13.385060</td><td>V</td></tr><tr><th>3</th><td>A</td><td>27.325194</td><td>Y</td></tr><tr><th>4</th><td>A</td><td>7.653971</td><td>V</td></tr><tr><th>5</th><td>A</td><td>33.852041</td><td>V</td></tr><tr><th>6</th><td>A</td><td>13.841095</td><td>V</td></tr><tr><th>7</th><td>B</td><td>-54.149611</td><td>W</td></tr><tr><th>8</th><td>C</td><td>59.813341</td><td>W</td></tr><tr><th>9</th><td>D</td><td>-14.687829</td><td>Z</td></tr><tr><th>10</th><td>A</td><td>-67.829095</td><td>W</td></tr><tr><th>11</th><td>A</td><td>-11.405758</td><td>Z</td></tr><tr><th>12</th><td>A</td><td>85.037990</td><td>W</td></tr><tr><th>13</th><td>A</td><td>52.511087</td><td>Z</td></tr><tr><th>14</th><td>A</td><td>-7.432607</td><td>W</td></tr><tr><th>15</th><td>A</td><td>-7.462885</td><td>V</td></tr><tr><th>16</th><td>A</td><td>-6.081753</td><td>X</td></tr><tr><th>17</th><td>A</td><td>113.837399</td><td>V</td></tr><tr><th>18</th><td>A</td><td>29.096773</td><td>Z</td></tr><tr><th>19</th><td>A</td><td>31.502082</td><td>V</td></tr></tbody></table></div></blockquote>
+<p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste.selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureSelection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span> <span class="o">=</span> <span class="n">FeatureSelection</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">db</span><span class="o">=</span><span class="n">df_test_filters</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span> <span class="c1"># Utile per vedere cosa succede</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">find_high_topcat_features</span><span class="p">(</span><span class="n">max_pct_mfv</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
+</pre></div>
+</div>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>feat_name</th>      <th>result</th>      <th>drop_reason</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>feature_A</td>      <td>drop</td>      <td>highly_concentrated</td>    </tr>    <tr>      <th>1</th>      <td>feature_B</td>      <td>keep</td>      <td>NaN</td>    </tr>    <tr>      <th>2</th>      <td>feature_C</td>      <td>keep</td>      <td>NaN</td>    </tr>  </tbody></table></dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureSelection.find_high_topcat_features</a><ul>
+<li><a class="reference internal" href="#cefeste.selection.FeatureSelection.find_high_topcat_features"><code class="docutils literal notranslate"><span class="pre">FeatureSelection.find_high_topcat_features()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cefeste.selection.FeatureSelection.find_correlated_features.html"
+                          title="previous chapter">FeatureSelection.find_correlated_features</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cefeste.selection.FeatureSelection.find_low_nvalues_features.html"
+                          title="next chapter">FeatureSelection.find_low_nvalues_features</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/cefeste.selection/cefeste.selection.FeatureSelection.find_high_topcat_features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.find_low_nvalues_features.html" title="FeatureSelection.find_low_nvalues_features"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.selection.FeatureSelection.find_correlated_features.html" title="FeatureSelection.find_correlated_features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.selection.html" >selection</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.selection.FeatureSelection.html" >FeatureSelection</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.find_high_topcat_features</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

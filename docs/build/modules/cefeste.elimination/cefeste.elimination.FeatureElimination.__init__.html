@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureElimination.__init__ &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FeatureElimination.eda" href="cefeste.elimination.FeatureElimination.eda.html" />
+    <link rel="prev" title="FeatureElimination" href="cefeste.elimination.FeatureElimination.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.eda.html" title="FeatureElimination.eda"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.html" title="FeatureElimination"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.elimination.html" >elimination</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.elimination.FeatureElimination.html" accesskey="U">FeatureElimination</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.__init__</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureelimination-init">
+<h1>FeatureElimination.__init__<a class="headerlink" href="#featureelimination-init" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination.__init__">
+<span class="sig-prename descclassname"><span class="pre">FeatureElimination.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_to_check=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_col=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_train_value=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algo_type='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_funct=&lt;class</span> <span class="pre">'sklearn.model_selection._search.RandomizedSearchCV'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_scoring='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter=20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manage_groups=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_type=StratifiedKFold(n_splits=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state=42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle=True)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ohe=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_feat_step=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_n_feature=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_final=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_substep=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_cat_threshold=10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Inizializza l’istanza di FeatureElimination.</p>
+<p>Questo costruttore imposta tutti i parametri necessari per eseguire l’analisi di eliminazione delle feature. Valida gli input, determina automaticamente il tipo di problema di machine learning (se non specificato) e prepara gli attributi della classe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<cite>pd.DataFrame</cite>) – <cite>DataFrame</cite> da analizzare.</p></li>
+<li><p><strong>target_col</strong> (<cite>str</cite>) – Nome della colonna target.</p></li>
+<li><p><strong>model</strong> (<cite>object</cite>) – Istanza di un classificatore o regressore.</p></li>
+<li><p><strong>grid</strong> (<cite>dict</cite>) – Griglia degli iperparametri per la ricerca.</p></li>
+<li><p><strong>feat_to_check</strong> (<cite>list</cite>, optional) – Lista delle feature da analizzare. Se <cite>None</cite>, vengono utilizzate tutte le colonne tranne <cite>target_col</cite> e <cite>sample_col</cite>. Default: <cite>None</cite>.</p></li>
+<li><p><strong>sample_col</strong> (<cite>str</cite>, optional) – Nome della colonna che indica se i campioni appartengono a ‘train’ o ‘test’. Default: <cite>None</cite>.</p></li>
+<li><p><strong>sample_train_value</strong> (<cite>str</cite>, optional) – Valore nella <cite>sample_col</cite> che identifica il set di training. Richiesto se <cite>sample_col</cite> è specificato. Default: <cite>None</cite>.</p></li>
+<li><p><strong>algo_type</strong> (<cite>str</cite>, optional) – Tipo di problema: “auto”, “classification”, “multiclass”, “regression”. Se “auto”, viene dedotto dalla cardinalità della colonna target. Default: “auto”.</p></li>
+<li><p><strong>cv_funct</strong> (<cite>class</cite>, optional) – Classe per la ricerca degli iperparametri in cross-validation (es. RandomizedSearchCV, GridSearchCV). Default: <cite>RandomizedSearchCV</cite>.</p></li>
+<li><p><strong>cv_scoring</strong> (<cite>str</cite>, optional) – Metrica di scoring da usare nella cross-validation. Se “auto”, seleziona “roc_auc” per classificazione binaria, “r2” per regressione e “balanced_accuracy” per multiclasse. Default: “auto”.</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Numero di iterazioni (combinazioni di iperparametri) da testare nella ricerca degli iperparametri. Default: <cite>20</cite>.</p></li>
+<li><p><strong>manage_groups</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, indica che la cross-validation deve mantenere uniti i gruppi definiti nel parametro <cite>groups</cite>. Default: <cite>False</cite>.</p></li>
+<li><p><strong>groups</strong> (<cite>pd.Series</cite>, optional) – Serie <cite>pandas</cite> con indice allineato al parametro <cite>db</cite>, contenente gli identificatori dei gruppi per la cross-validation (usato se <cite>manage_groups</cite> è <cite>True</cite>). Default: <cite>None</cite>.</p></li>
+<li><p><strong>cv_type</strong> (<cite>class</cite>, optional) – Classe splitter per definire i fold della cross-validation (es. StratifiedKFold, GroupKFold). Default: <cite>StratifiedKFold(5, random_state=42, shuffle=True)</cite>.</p></li>
+<li><p><strong>use_ohe</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, applica One-Hot Encoding alle feature identificate come categoriche prima di passare i dati al modello. Default: <cite>False</cite>.</p></li>
+<li><p><strong>step_size</strong> (<cite>int</cite>/<cite>float</cite>, optional) – Numero o frazione di feature da rimuovere ad ogni passo dell’RFE. Default: 0.1 (10%).</p></li>
+<li><p><strong>min_n_feat_step</strong> (<cite>int</cite>, optional) – Numero minimo di feature da rimuovere ad ogni passo, anche se <cite>step_size</cite> (come frazione) risulta in un numero minore. Default: 5.</p></li>
+<li><p><strong>final_n_feature</strong> (<cite>int</cite>, optional) – Numero minimo di feature a cui fermare il processo RFE. Default: 1.</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, stampa informazioni sull’avanzamento del processo. Default a <cite>True</cite>.</p></li>
+<li><p><strong>write_final</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, salva il report finale (<cite>DataFrame</cite>) in un file CSV nella directory corrente. Default: <cite>False</cite>.</p></li>
+<li><p><strong>write_substep</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, salva un report intermedio dopo ogni passo di eliminazione SHAP RFE in file CSV. Default: <cite>False</cite>.</p></li>
+<li><p><strong>dim_cat_threshold</strong> (<cite>int</cite>, optional) – Soglia di cardinalità per le feature categoriche. Se una feature categorica ha più valori unici di questa soglia, solo le top dim_cat_threshold categorie più frequenti vengono codificate con One-Hot Encoding (le altre vengono ignorate). Se <cite>None</cite>, viene applicato One-Hot Encoding standard a tutte le categorie. Default: 10.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Se <cite>algo_type</cite> è ‘auto’ per l’approccio supervisionato, questo verrà determinato in base al numero di valori unici nel target:</p>
+<blockquote>
+<div><p>&lt;=2 -&gt; ‘classification’ (Classificazione Binaria)</p>
+<p>&lt;11 -&gt; ‘multiclass’ (Classificazione Multiclasse)</p>
+<p>&gt;=11 -&gt; ‘regression’ (Regressione)</p>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureElimination.__init__</a><ul>
+<li><a class="reference internal" href="#cefeste.elimination.FeatureElimination.__init__"><code class="docutils literal notranslate"><span class="pre">FeatureElimination.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cefeste.elimination.FeatureElimination.html"
+                          title="previous chapter">FeatureElimination</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cefeste.elimination.FeatureElimination.eda.html"
+                          title="next chapter">FeatureElimination.eda</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/cefeste.elimination/cefeste.elimination.FeatureElimination.__init__.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.eda.html" title="FeatureElimination.eda"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.html" title="FeatureElimination"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.elimination.html" >elimination</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.elimination.FeatureElimination.html" >FeatureElimination</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.__init__</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>
