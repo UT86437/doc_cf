@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dummitizer &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Dummitizer.__init__" href="cefeste.transform.Dummitizer.__init__.html" />
+    <link rel="prev" title="ColumnRenamer.transform" href="cefeste.transform.ColumnRenamer.transform.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.transform.Dummitizer.__init__.html" title="Dummitizer.__init__"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.transform.ColumnRenamer.transform.html" title="ColumnRenamer.transform"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.transform.html" accesskey="U">transform</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dummitizer</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="dummitizer">
+<h1>Dummitizer<a class="headerlink" href="#dummitizer" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cefeste.transform.Dummitizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cefeste.transform.</span></span><span class="sig-name descname"><span class="pre">Dummitizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.transform.Dummitizer" title="Link to this definition">¶</a></dt>
+<dd><p>Converte feature specificate in variabili dummy binarie (0 o 1).</p>
+<p>Questo trasformatore crea variabili dummy dove il valore 1 indica che il valore originale della feature era diverso dall’attributo <cite>base_value</cite> specificato (default 0), e 0 altrimenti. È utile per binarizzare feature o per creare indicatori di presenza/assenza rispetto a un valore di riferimento. Può operare su un sottoinsieme di colonne o su tutte le colonne se non specificato.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Questa classe contiene i metodi <cite>get_params</cite> e <cite>set_params</cite> che vengono ereditati direttamente dalla classe padre <cite>BaseEstimator</cite> della libreria scikit-learn.</p>
+</div>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.__init__.html#cefeste.transform.Dummitizer.__init__" title="cefeste.transform.Dummitizer.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<td><p>Inizializza il Dummitizer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.fit.html#cefeste.transform.Dummitizer.fit" title="cefeste.transform.Dummitizer.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a></p></td>
+<td><p>Metodo di fit che non esegue alcuna operazione.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.fit_transform.html#cefeste.transform.Dummitizer.fit_transform" title="cefeste.transform.Dummitizer.fit_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_transform</span></code></a></p></td>
+<td><p>Esegue fit e transform in un unico passaggio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.get_params.html#cefeste.transform.Dummitizer.get_params" title="cefeste.transform.Dummitizer.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a></p></td>
+<td><p>Restituisce i parametri per questa classe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.set_params.html#cefeste.transform.Dummitizer.set_params" title="cefeste.transform.Dummitizer.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a></p></td>
+<td><p>Imposta il valore di uno o più attributi della classe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cefeste.transform.Dummitizer.transform.html#cefeste.transform.Dummitizer.transform" title="cefeste.transform.Dummitizer.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform</span></code></a></p></td>
+<td><p>Applica la trasformazione dummy alle colonne selezionate.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Dummitizer</a><ul>
+<li><a class="reference internal" href="#cefeste.transform.Dummitizer"><code class="docutils literal notranslate"><span class="pre">Dummitizer</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cefeste.transform.ColumnRenamer.transform.html"
+                          title="previous chapter">ColumnRenamer.transform</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cefeste.transform.Dummitizer.__init__.html"
+                          title="next chapter">Dummitizer.__init__</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/cefeste.transform/cefeste.transform.Dummitizer.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.transform.Dummitizer.__init__.html" title="Dummitizer.__init__"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.transform.ColumnRenamer.transform.html" title="ColumnRenamer.transform"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.transform.html" >transform</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Dummitizer</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>
