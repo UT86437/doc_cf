@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureElimination.eda &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.eda</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureelimination-eda">
+<h1>FeatureElimination.eda<a class="headerlink" href="#featureelimination-eda" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination.eda">
+<span class="sig-prename descclassname"><span class="pre">FeatureElimination.</span></span><span class="sig-name descname"><span class="pre">eda</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination.eda" title="Link to this definition">¶</a></dt>
+<dd><p>Genera un’analisi esplorativa dei dati (EDA) di base.</p>
+<p>(Metodo importato dalla classe <a class="reference internal" href="../../../modules/cefeste/cefeste.FeatureAnalysis.html#cefeste.FeatureAnalysis" title="cefeste.FeatureAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureAnalysis</span></code></a>)</p>
+<p>Per ogni feature numerica specificata nell’attributo <cite>numerical_features</cite>, calcola statistiche descrittive . Per ogni feature categorica specificata nell’attributo <cite>categorical_features</cite>, calcola il conteggio dei valori unici.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Un dizionario dove le chiavi sono i nomi delle colonne (feature) e i valori sono:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Per le feature numeriche: un oggetto <cite>pd.Series</cite> con le statistiche descrittive.</p></li>
+<li><p>Per le feature categoriche: un oggetto <cite>pd.Series</cite> con i conteggi dei valori.</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>dict</cite></p>
+</dd>
+</dl>
+<p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureAnalysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;eta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;citta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Roma&#39;</span><span class="p">,</span> <span class="s1">&#39;Milano&#39;</span><span class="p">,</span> <span class="s1">&#39;Roma&#39;</span><span class="p">,</span> <span class="s1">&#39;Napoli&#39;</span><span class="p">,</span> <span class="s1">&#39;Milano&#39;</span><span class="p">,</span> <span class="s1">&#39;Roma&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;punteggio&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">15.2</span><span class="p">,</span> <span class="mf">10.5</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">18.1</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">FeatureAnalysis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis_results</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">eda</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analysis_results</span>
+<span class="go">{&#39;eta&#39;: count     6.000000</span>
+<span class="go"> mean     30.833333</span>
+<span class="go"> std       5.845226</span>
+<span class="go"> min      25.000000</span>
+<span class="go"> 25%      26.250000</span>
+<span class="go"> 50%      30.000000</span>
+<span class="go"> 75%      33.750000</span>
+<span class="go"> max      40.000000</span>
+<span class="go"> Name: eta, dtype: float64,</span>
+<span class="go"> &#39;punteggio&#39;: count     6.000000</span>
+<span class="go"> mean     12.550000</span>
+<span class="go"> std       3.439041</span>
+<span class="go"> min       9.000000</span>
+<span class="go"> 25%      10.500000</span>
+<span class="go"> 50%      11.250000</span>
+<span class="go"> 75%      14.400000</span>
+<span class="go"> max      18.100000</span>
+<span class="go"> Name: punteggio, dtype: float64,</span>
+<span class="go"> &#39;citta&#39;: Roma      3</span>
+<span class="go"> Milano    2</span>
+<span class="go"> Napoli    1</span>
+<span class="go"> Name: citta, dtype: int64}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureElimination.eda</a><ul>
+<li><a class="reference internal" href="#cefeste.elimination.FeatureElimination.eda"><code class="docutils literal notranslate"><span class="pre">FeatureElimination.eda()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.elimination/cefeste.elimination.FeatureElimination.eda.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.eda</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

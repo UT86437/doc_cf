@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureSelection.get_db_filtered &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.get_db_filtered</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureselection-get-db-filtered">
+<h1>FeatureSelection.get_db_filtered<a class="headerlink" href="#featureselection-get-db-filtered" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.selection.FeatureSelection.get_db_filtered">
+<span class="sig-prename descclassname"><span class="pre">FeatureSelection.</span></span><span class="sig-name descname"><span class="pre">get_db_filtered</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection.get_db_filtered" title="Link to this definition">¶</a></dt>
+<dd><p>Restituisce il <cite>DataFrame</cite> originale senza le feature eliminate.</p>
+<p>Rimuove dal <cite>DataFrame</cite> originale (attributo <cite>db</cite>) le colonne corrispondenti alle feature che sono state memorizzate nell’attributo <cite>_filtered_out_features</cite> dai vari filtri di selezione. Mantiene tutte le altre colonne originali (inclusi target, sample_col, ecc.). Questo rappresenta il dataset dopo l’applicazione dei filtri della feature selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Il <cite>DataFrame</cite> originale con le colonne delle feature eliminate rimosse.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>pd.DataFrame</cite></p>
+</dd>
+</dl>
+<p><strong>Dati utilizzati per gli esempi:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df_test_filters</span>
+</pre></div>
+</div>
+<style>
+       /* Stile base per la tabella con la nostra classe specifica */
+       .jupyter-style-table {
+           border-collapse: collapse; /* Bordi uniti */
+           margin: 1em 0; /* Margine sopra/sotto */
+           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font simile a Jupyter */
+           font-size: 0.9em; /* Dimensione font leggermente ridotta */
+           border: 1px solid #d3d3d3; /* Bordo esterno leggero */
+           width: auto; /* Larghezza basata sul contenuto */
+           max-width: 100%; /* Non superare il contenitore */
+           overflow-x: auto; /* Abilita lo scroll orizzontale se necessario (meglio sul wrapper, ma ok qui) */
+           display: block; /* Necessario per far funzionare overflow-x su una tabella */
+       }
+
+       /* Stile per le celle dell'header (th) */
+       .jupyter-style-table thead th {
+           background-color: #f5f5f5; /* Sfondo grigio chiaro per header */
+           font-weight: bold; /* Grassetto */
+           padding: 8px 10px; /* Padding interno */
+           text-align: right; /* Allineamento testo (spesso a destra per numeri/default) */
+           border-bottom: 1px solid #d3d3d3; /* Linea sotto l'header */
+           vertical-align: bottom; /* Allineamento verticale */
+       }
+
+       /* Stile per le celle dei dati (td) */
+       .jupyter-style-table tbody td {
+           padding: 6px 10px; /* Padding interno */
+           text-align: right; /* Allineamento testo (aggiusta se hai testo a sinistra) */
+           border-right: 1px solid #d3d3d3; /* Linea verticale tra celle (opzionale) */
+           border-top: 1px solid #d3d3d3; /* Linea orizzontale tra righe */
+           vertical-align: middle; /* Allineamento verticale */
+       }
+       .jupyter-style-table tbody td:last-child {
+           border-right: none; /* Rimuovi bordo destro sull'ultima cella */
+       }
+
+       /* Stile per l'header dell'indice (se presente) */
+       .jupyter-style-table thead th.blank { /* Header vuoto sopra l'indice */
+           background-color: white;
+           border: none;
+       }
+       .jupyter-style-table tbody th { /* Celle dell'indice nel body */
+           padding: 6px 10px;
+           text-align: right;
+           font-weight: normal;
+           border-right: 1px solid #d3d3d3;
+           border-top: 1px solid #d3d3d3;
+           background-color: #f5f5f5; /* Sfondo leggero per indice */
+       }
+
+
+       /* Striping delle righe (alternanza colori) */
+       .jupyter-style-table tbody tr:nth-child(even) {
+           background-color: #f9f9f9; /* Sfondo molto leggero per righe pari */
+       }
+
+       /* Effetto Hover (cambio colore al passaggio del mouse) */
+       .jupyter-style-table tbody tr:hover {
+           background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
+       }
+    </style>
+    <table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>feature_B</th>      <th>feature_C</th>      <th>target</th>      <th>feature_A1</th>      <th>feature_A2</th>      <th>sample_col</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>34.835708</td>      <td>Z</td>      <td>75.013312</td>      <td>-0.270712</td>      <td>-0.812137</td>      <td>train</td>    </tr>    <tr>      <th>1</th>      <td>3.086785</td>      <td>X</td>      <td>109.194174</td>      <td>0.104848</td>      <td>0.314544</td>      <td>train</td>    </tr>    <tr>      <th>2</th>      <td>42.384427</td>      <td>Y</td>      <td>96.287048</td>      <td>0.250528</td>      <td>0.751583</td>      <td>train</td>    </tr>    <tr>      <th>3</th>      <td>86.151493</td>      <td>X</td>      <td>264.905765</td>      <td>-0.925200</td>      <td>-2.775600</td>      <td>train</td>    </tr>    <tr>      <th>4</th>      <td>-1.707669</td>      <td>V</td>      <td>2.880829</td>      <td>0.567144</td>      <td>1.701431</td>      <td>train</td>    </tr>    <tr>      <th>5</th>      <td>-1.706848</td>      <td>V</td>      <td>2.318509</td>      <td>-1.040180</td>      <td>-3.120541</td>      <td>train</td>    </tr>    <tr>      <th>6</th>      <td>88.960641</td>      <td>X</td>      <td>273.054387</td>      <td>-0.153676</td>      <td>-0.461028</td>      <td>train</td>    </tr>    <tr>      <th>7</th>      <td>48.371736</td>      <td>V</td>      <td>101.779140</td>      <td>0.789852</td>      <td>2.369555</td>      <td>train</td>    </tr>    <tr>      <th>8</th>      <td>-13.473719</td>      <td>Z</td>      <td>-25.266714</td>      <td>-1.226216</td>      <td>-3.678648</td>      <td>train</td>    </tr>    <tr>      <th>9</th>      <td>37.128002</td>      <td>Y</td>      <td>73.118623</td>      <td>-0.948007</td>      <td>-2.844021</td>      <td>train</td>    </tr>    <tr>      <th>10</th>      <td>-13.170885</td>      <td>X</td>      <td>69.538553</td>      <td>-0.569654</td>      <td>-1.708962</td>      <td>train</td>    </tr>    <tr>      <th>11</th>      <td>-13.286488</td>      <td>Z</td>      <td>-30.168523</td>      <td>-0.977150</td>      <td>-2.931451</td>      <td>train</td>    </tr>    <tr>      <th>12</th>      <td>22.098114</td>      <td>W</td>      <td>54.445288</td>      <td>-0.770632</td>      <td>-2.311895</td>      <td>train</td>    </tr>    <tr>      <th>13</th>      <td>-85.664012</td>      <td>W</td>      <td>-171.324610</td>      <td>-0.033711</td>      <td>-0.101134</td>      <td>train</td>    </tr>    <tr>      <th>14</th>      <td>-76.245892</td>      <td>X</td>      <td>-48.581133</td>      <td>-1.032859</td>      <td>-3.098578</td>      <td>train</td>    </tr>    <tr>      <th>15</th>      <td>-18.114376</td>      <td>X</td>      <td>59.816750</td>      <td>1.142427</td>      <td>3.427282</td>      <td>train</td>    </tr>    <tr>      <th>16</th>      <td>-40.641556</td>      <td>Z</td>      <td>-85.182377</td>      <td>-0.609778</td>      <td>-1.829334</td>      <td>train</td>    </tr>    <tr>      <th>17</th>      <td>25.712367</td>      <td>Y</td>      <td>56.834657</td>      <td>1.469416</td>      <td>4.408249</td>      <td>train</td>    </tr>    <tr>      <th>18</th>      <td>-35.401204</td>      <td>Y</td>      <td>-77.550289</td>      <td>1.492679</td>      <td>4.478037</td>      <td>train</td>    </tr>    <tr>      <th>19</th>      <td>-60.615185</td>      <td>Y</td>      <td>-123.306439</td>      <td>0.707125</td>      <td>2.121376</td>      <td>train</td>    </tr>  </tbody></table><p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste.selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureSelection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span> <span class="o">=</span> <span class="n">FeatureSelection</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">db</span><span class="o">=</span><span class="n">df_test_filters</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;target&#39;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">sample_col</span><span class="o">=</span><span class="s1">&#39;sample_col&#39;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">sample_train_value</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
+</pre></div>
+</div>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>feat_name</th>      <th>result</th>      <th>drop_reason</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>feature_A1</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>1</th>      <td>feature_A2</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>2</th>      <td>good_feature_cat</td>      <td>keep</td>      <td>NaN</td>    </tr>    <tr>      <th>3</th>      <td>good_feature_num</td>      <td>keep</td>      <td>NaN</td>    </tr>  </tbody></table><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">get_db_filtered</span><span class="p">()</span>
+</pre></div>
+</div>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>good_feature_num</th>      <th>good_feature_cat</th>      <th>target</th>      <th>sample_col</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>34.835708</td>      <td>Z</td>      <td>75.013312</td>      <td>train</td>    </tr>    <tr>      <th>1</th>      <td>3.086785</td>      <td>X</td>      <td>109.194174</td>      <td>train</td>    </tr>    <tr>      <th>2</th>      <td>42.384427</td>      <td>Y</td>      <td>96.287048</td>      <td>train</td>    </tr>    <tr>      <th>3</th>      <td>86.151493</td>      <td>X</td>      <td>264.905765</td>      <td>train</td>    </tr>    <tr>      <th>4</th>      <td>-1.707669</td>      <td>V</td>      <td>2.880829</td>      <td>train</td>    </tr>    <tr>      <th>5</th>      <td>-1.706848</td>      <td>V</td>      <td>2.318509</td>      <td>train</td>    </tr>    <tr>      <th>6</th>      <td>88.960641</td>      <td>X</td>      <td>273.054387</td>      <td>train</td>    </tr>    <tr>      <th>7</th>      <td>48.371736</td>      <td>V</td>      <td>101.779140</td>      <td>train</td>    </tr>    <tr>      <th>8</th>      <td>-13.473719</td>      <td>Z</td>      <td>-25.266714</td>      <td>train</td>    </tr>    <tr>      <th>9</th>      <td>37.128002</td>      <td>Y</td>      <td>73.118623</td>      <td>train</td>    </tr>    <tr>      <th>10</th>      <td>-13.170885</td>      <td>X</td>      <td>69.538553</td>      <td>train</td>    </tr>    <tr>      <th>11</th>      <td>-13.286488</td>      <td>Z</td>      <td>-30.168523</td>      <td>train</td>    </tr>    <tr>      <th>12</th>      <td>22.098114</td>      <td>W</td>      <td>54.445288</td>      <td>train</td>    </tr>    <tr>      <th>13</th>      <td>-85.664012</td>      <td>W</td>      <td>-171.324610</td>      <td>train</td>    </tr>    <tr>      <th>14</th>      <td>-76.245892</td>      <td>X</td>      <td>-48.581133</td>      <td>train</td>    </tr>    <tr>      <th>15</th>      <td>-18.114376</td>      <td>X</td>      <td>59.816750</td>      <td>train</td>    </tr>    <tr>      <th>16</th>      <td>-40.641556</td>      <td>Z</td>      <td>-85.182377</td>      <td>train</td>    </tr>    <tr>      <th>17</th>      <td>25.712367</td>      <td>Y</td>      <td>56.834657</td>      <td>train</td>    </tr>    <tr>      <th>18</th>      <td>-35.401204</td>      <td>Y</td>      <td>-77.550289</td>      <td>train</td>    </tr>    <tr>      <th>19</th>      <td>-60.615185</td>      <td>Y</td>      <td>-123.306439</td>      <td>train</td>    </tr>  </tbody></table></dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureSelection.get_db_filtered</a><ul>
+<li><a class="reference internal" href="#cefeste.selection.FeatureSelection.get_db_filtered"><code class="docutils literal notranslate"><span class="pre">FeatureSelection.get_db_filtered()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.selection/cefeste.selection.FeatureSelection.get_db_filtered.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.get_db_filtered</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

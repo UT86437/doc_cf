@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureElimination.extract_features &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.extract_features</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureelimination-extract-features">
+<h1>FeatureElimination.extract_features<a class="headerlink" href="#featureelimination-extract-features" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination.extract_features">
+<span class="sig-prename descclassname"><span class="pre">FeatureElimination.</span></span><span class="sig-name descname"><span class="pre">extract_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection_rule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'decrease_perf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_feat_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination.extract_features" title="Link to this definition">¶</a></dt>
+<dd><p>Estrae la lista finale delle feature selezionate in base a una regola specificata.</p>
+<p>Analizza il report generato dal metodo <cite>make_report()</cite> e seleziona un sottoinsieme di feature secondo il parametro <cite>selection_rule</cite>. Le regole disponibili sono:</p>
+<ul class="simple">
+<li><p><cite>decrease_perf</cite>: Seleziona il set di feature più piccolo prima che la performance di validazione scenda significativamente (più del <cite>gap</cite> %) rispetto al massimo raggiunto.</p></li>
+<li><p><cite>best_valid</cite>: Seleziona il set di feature corrispondente al miglior punteggio di validazione (scegliendo il set più piccolo in caso di parità).</p></li>
+<li><p><cite>num_feat</cite>: Seleziona il set di feature corrispondente esattamente a <cite>number_feat_rep</cite> feature.</p></li>
+<li><p><cite>robust_tradeoff</cite>: Seleziona il set di feature che massimizza un compromesso tra performance media (train+valid) e robustezza (gap tra performance di train e valid), pesato dal parametro <cite>alpha</cite>. Viene calcolato come lo score medio (tra train e valid) moltiplicato per <cite>alpha</cite> meno la differenza di score (tra train e valid) moltiplicato per 1 - <cite>alpha</cite>.</p></li>
+</ul>
+<p>La lista delle feature selezionate viene memorizzata nell’attributo <cite>final_feat</cite> e restituita dal metodo. Le feature scartate, invece, vengono memorizzate nell’attributo <cite>_filtered_out_features</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selection_rule</strong> (<cite>str</cite>, optional) – La regola da utilizzare per la selezione. Valori possibili: “decrease_perf”, “best_valid”, “num_feat”, “robust_tradeoff”. Default: ‘decrease_perf’.</p></li>
+<li><p><strong>number_feat_rep</strong> (<cite>int</cite>, optional) – Numero di feature desiderato. Utilizzato solo se <cite>selection_rule</cite> è “num_feat”. Default: <cite>None</cite>.</p></li>
+<li><p><strong>gap</strong> (<cite>float</cite>, optional) – Soglia di calo percentuale della performance accettabile. Utilizzato solo se <cite>selection_rule</cite> è “decrease_perf”. Default: 0.1 (10%).</p></li>
+<li><p><strong>alpha</strong> (<cite>float</cite>, optional) – Peso per il termine di performance medio nella regola “robust_tradeoff”. Il peso per il gap di robustezza sarà (1-alpha). Deve essere tra 0 e 1. Default: 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista dei nomi delle feature selezionate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>list</cite></p>
+</dd>
+</dl>
+<p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste.elimination</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureElimination</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Dati di esempio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span><span class="s1">&#39;feature1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">43</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+<span class="gp">... </span><span class="s1">&#39;feature2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+<span class="gp">... </span><span class="s1">&#39;feature3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span><span class="s1">&#39;feature4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">78</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+<span class="gp">... </span><span class="s1">&#39;feature5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span><span class="s1">&#39;target&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Parametri</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_col</span> <span class="o">=</span> <span class="s1">&#39;target&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Inizializzazione</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span> <span class="o">=</span> <span class="n">FeatureElimination</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">db</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generazione del report</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
+</pre></div>
+</div>
+<style>
+   /* Stile base per la tabella con la nostra classe specifica */
+   .jupyter-style-table {
+       border-collapse: collapse; /* Bordi uniti */
+       margin: 1em 0; /* Margine sopra/sotto */
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font simile a Jupyter */
+       font-size: 0.9em; /* Dimensione font leggermente ridotta */
+       border: 1px solid #d3d3d3; /* Bordo esterno leggero */
+       width: auto; /* Larghezza basata sul contenuto */
+       max-width: 100%; /* Non superare il contenitore */
+       overflow-x: auto; /* Abilita lo scroll orizzontale se necessario (meglio sul wrapper, ma ok qui) */
+       display: block; /* Necessario per far funzionare overflow-x su una tabella */
+   }
+
+   /* Stile per le celle dell'header (th) */
+   .jupyter-style-table thead th {
+       background-color: #f5f5f5; /* Sfondo grigio chiaro per header */
+       font-weight: bold; /* Grassetto */
+       padding: 8px 10px; /* Padding interno */
+       text-align: right; /* Allineamento testo (spesso a destra per numeri/default) */
+       border-bottom: 1px solid #d3d3d3; /* Linea sotto l'header */
+       vertical-align: bottom; /* Allineamento verticale */
+   }
+
+   /* Stile per le celle dei dati (td) */
+   .jupyter-style-table tbody td {
+       padding: 6px 10px; /* Padding interno */
+       text-align: right; /* Allineamento testo (aggiusta se hai testo a sinistra) */
+       border-right: 1px solid #d3d3d3; /* Linea verticale tra celle (opzionale) */
+       border-top: 1px solid #d3d3d3; /* Linea orizzontale tra righe */
+       vertical-align: middle; /* Allineamento verticale */
+   }
+   .jupyter-style-table tbody td:last-child {
+       border-right: none; /* Rimuovi bordo destro sull'ultima cella */
+   }
+
+   /* Stile per l'header dell'indice (se presente) */
+   .jupyter-style-table thead th.blank { /* Header vuoto sopra l'indice */
+       background-color: white;
+       border: none;
+   }
+   .jupyter-style-table tbody th { /* Celle dell'indice nel body */
+       padding: 6px 10px;
+       text-align: right;
+       font-weight: normal;
+       border-right: 1px solid #d3d3d3;
+       border-top: 1px solid #d3d3d3;
+       background-color: #f5f5f5; /* Sfondo leggero per indice */
+   }
+
+
+   /* Striping delle righe (alternanza colori) */
+   .jupyter-style-table tbody tr:nth-child(even) {
+       background-color: #f9f9f9; /* Sfondo molto leggero per righe pari */
+   }
+
+   /* Effetto Hover (cambio colore al passaggio del mouse) */
+   .jupyter-style-table tbody tr:hover {
+       background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
+   }
+</style>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>n_feat</th>      <th>train_score</th>      <th>valid_score</th>      <th>n_feat_to_remove</th>      <th>feat_used</th>      <th>feat_to_remove</th>      <th>feat_select</th>      <th>best_estimator</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>5</td>      <td>0.964706</td>      <td>0.891667</td>      <td>4</td>      <td>[feature3, feature4, feature2, feature1, feature5]</td>      <td>[feature3, feature4, feature2, feature1]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>1</th>      <td>1</td>      <td>0.788235</td>      <td>0.791667</td>      <td>0</td>      <td>[feature5]</td>      <td>[]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>  </tbody></table><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">extract_features</span><span class="p">()</span>
+<span class="go">[&#39;feature3&#39;, &#39;feature4&#39;, &#39;feature2&#39;, &#39;feature1&#39;, &#39;feature5&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureElimination.extract_features</a><ul>
+<li><a class="reference internal" href="#cefeste.elimination.FeatureElimination.extract_features"><code class="docutils literal notranslate"><span class="pre">FeatureElimination.extract_features()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.elimination/cefeste.elimination.FeatureElimination.extract_features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.extract_features</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>
