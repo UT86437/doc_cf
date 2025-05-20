@@ -42,7 +42,7 @@
 <span class="sig-prename descclassname"><span class="pre">FeatureSelection.</span></span><span class="sig-name descname"><span class="pre">find_constant_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection.find_constant_features" title="Link to this definition">¶</a></dt>
 <dd><p>Esegue solo il filtro per le feature costanti.</p>
 <p>Questo metodo è un wrapper attorno al metodo <cite>run</cite>, configurato per attivare specificamente il filtro delle feature costanti e disabilitare tutti gli altri filtri. Aggiorna lo stato dell’istanza  in base ai risultati di questo singolo filtro.</p>
-<p>Questa funzione <cite>ha lo scopo di trovare le colonne che hanno un numero di valori distinti uguale a 1. Se una colonna ha un solo valore distinto, significa che è costante (ad esempio, una colonna dove ogni riga ha il valore `True</cite>), e il nome di questa colonna viene incluso nella lista dei risultati, ovvero tutte le feature da escludere.</p>
+<p>Questa funzione ha lo scopo di trovare le colonne che hanno un numero di valori distinti uguale a 1. Se una colonna ha un solo valore distinto, significa che è costante (ad esempio, una colonna dove ogni riga ha il valore <cite>True</cite>), e il nome di questa colonna viene incluso nella lista dei risultati, ovvero tutte le feature da escludere.</p>
 <p>Dopo l’applicazione del filtro vengono modificati gli attributi della classe con la selezione effettuata.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

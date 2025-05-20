@@ -63,7 +63,7 @@
 <li><p>L’ordine di applicazione dei filtri è predefinito e può influenzare quali feature vengono rimosse da quale criterio se una feature soddisfa più criteri di rimozione.</p></li>
 <li><p>I risultati, come le feature selezionate e i report, sono memorizzati negli attributi dell’istanza.</p></li>
 <li><p>Per vedere quali parametri si possono inserire nei kwargs guardare dettagli in ogni filtro.</p></li>
-<li><p>Gli attributi principali che vengono modificati per ogni filtro sono _selected_features e _filtered_out_features, rispettivamente le feature considerate “buone” e quelle che vengono eliminate dai filtri.</p></li>
+<li><p>Gli attributi principali che vengono modificati per ogni filtro sono <cite>_selected_features</cite> e <cite>_filtered_out_features</cite>, rispettivamente le feature considerate “buone” e quelle che vengono eliminate dai filtri.</p></li>
 </ul>
 </div>
 <p><strong>Dati utilizzati per gli esempi:</strong></p>
@@ -144,7 +144,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fs</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
 </pre></div>
 </div>
-<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>feat_name</th>      <th>result</th>      <th>drop_reason</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>feature_A1</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>1</th>      <td>feature_A2</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>2</th>      <td>good_feature_cat</td>      <td>keep</td>      <td>NaN</td>    </tr>    <tr>      <th>3</th>      <td>good_feature_num</td>      <td>keep</td>      <td>NaN</td>    </tr>  </tbody></table></dd></dl>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>feat_name</th>      <th>result</th>      <th>drop_reason</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>feature_A1</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>1</th>      <td>feature_A2</td>      <td>drop</td>      <td>unexplanatory</td>    </tr>    <tr>      <th>2</th>      <td>feature_C</td>      <td>keep</td>      <td>NaN</td>    </tr>    <tr>      <th>3</th>      <td>feature_B</td>      <td>keep</td>      <td>NaN</td>    </tr>  </tbody></table></dd></dl>
 
 </section>
 

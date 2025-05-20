@@ -57,10 +57,14 @@ di tutti i parametri dell’istanza se <cite>params</cite> è <cite>None</cite>.
 </dl>
 <p><strong>Esempio:</strong></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureAnalysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#from cefeste.selection import FeatureSelection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#from cefeste.elimination import FeatureElimination</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">FeatureAnalysis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#analyzer = FeatureSelection(df)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#analyzer = FeatureElimination(df)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">get_params</span><span class="p">(</span><span class="s1">&#39;db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureElimination.extract_features &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FeatureElimination.get_X_original" href="cefeste.elimination.FeatureElimination.get_X_original.html" />
+    <link rel="prev" title="FeatureElimination.eda" href="cefeste.elimination.FeatureElimination.eda.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.get_X_original.html" title="FeatureElimination.get_X_original"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.eda.html" title="FeatureElimination.eda"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.elimination.html" >elimination</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.elimination.FeatureElimination.html" accesskey="U">FeatureElimination</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.extract_features</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureelimination-extract-features">
+<h1>FeatureElimination.extract_features<a class="headerlink" href="#featureelimination-extract-features" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination.extract_features">
+<span class="sig-prename descclassname"><span class="pre">FeatureElimination.</span></span><span class="sig-name descname"><span class="pre">extract_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection_rule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'decrease_perf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_feat_rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination.extract_features" title="Link to this definition">¶</a></dt>
+<dd><p>Estrae la lista finale delle feature selezionate in base a una regola specificata.</p>
+<p>Analizza il report generato dal metodo <cite>make_report()</cite> e seleziona un sottoinsieme di feature secondo il parametro <cite>selection_rule</cite>. Le regole disponibili sono:</p>
+<ul class="simple">
+<li><p>‘decrease_perf’: Seleziona il set di feature più piccolo prima che la performance di validazione scenda significativamente (più del <a href="#id1"><span class="problematic" id="id2">`</span></a>gap`%) rispetto al massimo raggiunto.</p></li>
+<li><p>‘best_valid’: Seleziona il set di feature corrispondente al miglior punteggio di validazione (scegliendo il set più piccolo in caso di parità).</p></li>
+<li><p>‘num_feat’: Seleziona il set di feature corrispondente esattamente a <cite>number_feat_rep</cite> feature.</p></li>
+<li><p>‘robust_tradeoff’: Seleziona il set di feature che massimizza un compromesso tra performance media (train+valid) e robustezza (piccola differenza tra train e valid), pesato dal parametro <cite>alpha</cite>.</p></li>
+</ul>
+<p>La lista delle feature selezionate viene memorizzata nell’attributo <cite>final_feat</cite> e restituita dal metodo. Le feature scartate, invece, vengono memorizzate nell’attributo <cite>_filtered_out_features</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selection_rule</strong> (<cite>str</cite>, opzionale) – La regola da utilizzare per la selezione. Valori possibili: “decrease_perf”, “best_valid”, “num_feat”, “robust_tradeoff”. Default: ‘decrease_perf’.</p></li>
+<li><p><strong>number_feat_rep</strong> (<cite>int</cite>, opzionale) – Numero di feature desiderato. Utilizzato solo se <cite>selection_rule</cite> è “num_feat”. Default: <cite>None</cite>.</p></li>
+<li><p><strong>gap</strong> (<cite>float</cite>, opzionale) – Soglia di calo percentuale della performance accettabile. Utilizzato solo se <cite>selection_rule</cite> è “decrease_perf”. Default: 0.1 (10%).</p></li>
+<li><p><strong>alpha</strong> (<cite>float</cite>, opzionale) – Peso per il termine di performance medio nella regola “robust_tradeoff”. Il peso per il gap di robustezza sarà (1-alpha). Deve essere tra 0 e 1. Default: 0.5.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La lista dei nomi delle feature selezionate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>str</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureElimination.extract_features</a><ul>
+<li><a class="reference internal" href="#cefeste.elimination.FeatureElimination.extract_features"><code class="docutils literal notranslate"><span class="pre">FeatureElimination.extract_features()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="cefeste.elimination.FeatureElimination.eda.html"
+                          title="previous chapter">FeatureElimination.eda</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cefeste.elimination.FeatureElimination.get_X_original.html"
+                          title="next chapter">FeatureElimination.get_X_original</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/cefeste.elimination/cefeste.elimination.FeatureElimination.extract_features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.get_X_original.html" title="FeatureElimination.get_X_original"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="cefeste.elimination.FeatureElimination.eda.html" title="FeatureElimination.eda"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../cefeste.elimination.html" >elimination</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="cefeste.elimination.FeatureElimination.html" >FeatureElimination</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination.extract_features</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>
