@@ -51,13 +51,13 @@
 <dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination.make_report">
 <span class="sig-prename descclassname"><span class="pre">FeatureElimination.</span></span><span class="sig-name descname"><span class="pre">make_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination.make_report" title="Link to this definition">¶</a></dt>
 <dd><p>Esegue il processo SHAP RFE e genera il report delle performance per ogni iterazione.</p>
-<p>Questo metodo prepara i dati (separando X e y, gestendo il campionamento train/test se specificato), valida i gruppi per la CV, identifica le feature categoriche per OHE (se richiesto), e infine esegue l’eliminazione ricorsiva delle feature. Il report risultante viene memorizzato nell’attributo <cite>report</cite>.</p>
-<p>La <strong>RFE</strong> trova le feature migliori per un modello:</p>
+<p>Questo metodo prepara i dati, valida i gruppi per la CV (se presenti), identifica le feature categoriche per OHE (se richiesto), e infine esegue l’eliminazione ricorsiva delle feature. Il report risultante viene memorizzato nell’attributo <cite>report</cite>.</p>
+<p>La <strong>RFE</strong> seleziona le feature per un modello con il seguente processo iterativo:</p>
 <ul class="simple">
+<li><p>Addestra un modello ottimizzandone gli iperparametri del modello tramite Cross-Validation.</p></li>
 <li><p>Calcola l’importanza di ogni feature usando i valori SHAP.</p></li>
 <li><p>Rimuove le feature meno importanti.</p></li>
-<li><p>Ottimizza gli iperparametri del modello tramite Cross-Validation.</p></li>
-<li><p>Ripete i passaggi finché non rimane il numero desiderato di feature.</p></li>
+<li><p>Ripete i passaggi finché non rimane il numero desiderato di feature (o finchè non vi è una decrescita critica nelle performance).</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -69,7 +69,7 @@
 <div><ul class="simple">
 <li><p><strong>n_feat</strong>: Numero di feature nel dataset prima della rimozione delle feature in uno step.</p></li>
 <li><p><strong>train_score</strong>: Metrica di performance (AUC, R2, Balanced Accuracy) del modello addestrato sul dataset di training con le feature correnti.</p></li>
-<li><p><strong>valid_score</strong>: Metrica di performance del modello ottenuta tramite Cross-Validation sul dataset di training con le feature correnti.</p></li>
+<li><p><strong>valid_score</strong>: Metrica di performance di validazione del modello in Cross-Validation sul dataset di training con le feature correnti.</p></li>
 <li><p><strong>n_feat_to_remove</strong>: Numero di feature rimosse in uno step.</p></li>
 <li><p><strong>feat_used</strong>: Lista delle feature utilizzate per addestrare il modello in uno step (prima della rimozione).</p></li>
 <li><p><strong>feat_to_remove</strong>: Lista delle feature che sono state rimosse in questo step.</p></li>
@@ -106,6 +106,7 @@
 <span class="gp">... </span>   <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">min_n_feat_step</span><span class="o">=</span><span class="mi">1</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generazione del report</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
@@ -172,7 +173,7 @@
        background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
    }
 </style>
-<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>n_feat</th>      <th>train_score</th>      <th>valid_score</th>      <th>n_feat_to_remove</th>      <th>feat_used</th>      <th>feat_to_remove</th>      <th>feat_select</th>      <th>best_estimator</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>5</td>      <td>0.964706</td>      <td>0.891667</td>      <td>4</td>      <td>[feature3, feature4, feature2, feature1, feature5]</td>      <td>[feature3, feature4, feature2, feature1]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>1</th>      <td>1</td>      <td>0.788235</td>      <td>0.791667</td>      <td>0</td>      <td>[feature5]</td>      <td>[]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>  </tbody></table></dd></dl>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>n_feat</th>      <th>train_score</th>      <th>valid_score</th>      <th>n_feat_to_remove</th>      <th>feat_used</th>      <th>feat_to_remove</th>      <th>feat_select</th>      <th>best_estimator</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>5</td>      <td>0.964706</td>      <td>0.891667</td>      <td>1</td>      <td>[feature3, feature5, feature1, feature2, feature4]</td>      <td>[feature3]</td>      <td>[feature5, feature1, feature2, feature4]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>1</th>      <td>4</td>      <td>0.964706</td>      <td>0.891667</td>      <td>1</td>      <td>[feature4, feature5, feature2, feature1]</td>      <td>[feature4]</td>      <td>[feature5, feature2, feature1]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>2</th>      <td>3</td>      <td>0.982353</td>      <td>0.925000</td>      <td>1</td>      <td>[feature2, feature5, feature1]</td>      <td>[feature2]</td>      <td>[feature5, feature1]</td>      <td>LogisticRegression(C=1)</td>    </tr>    <tr>      <th>3</th>      <td>2</td>      <td>0.817647</td>      <td>0.750000</td>      <td>1</td>      <td>[feature1, feature5]</td>      <td>[feature1]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>4</th>      <td>1</td>      <td>0.788235</td>      <td>0.791667</td>      <td>0</td>      <td>[feature5]</td>      <td>[]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>  </tbody></table></dd></dl>
 
 </section>
 

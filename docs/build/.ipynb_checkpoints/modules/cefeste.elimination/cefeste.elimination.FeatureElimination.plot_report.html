@@ -44,7 +44,7 @@
 <p>Utilizza il <cite>DataFrame</cite> dell’attributo <cite>report</cite> generato dal metodo <cite>make_report()</cite> per creare un grafico a linee che mostra l’andamento dello score di training e di validazione man mano che le feature vengono eliminate. L’asse x rappresenta il numero di feature, l’asse y lo score.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>None</strong> – (metodo basato sul report risultante dal metodo <cite>make_report</cite>).</p>
+<dd class="field-odd"><p><strong>None</strong> – (metodo basato sul report risultante dal metodo <cite>make_report()</cite>).</p>
 </dd>
 </dl>
 <p><strong>Esempio:</strong></p>
@@ -70,6 +70,7 @@
 <span class="gp">... </span>   <span class="n">target_col</span><span class="o">=</span><span class="n">target_col</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">min_n_feat_step</span><span class="o">=</span><span class="mi">1</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generazione del report</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">make_report</span><span class="p">()</span>
@@ -136,7 +137,7 @@
        background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
    }
 </style>
-<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>n_feat</th>      <th>train_score</th>      <th>valid_score</th>      <th>n_feat_to_remove</th>      <th>feat_used</th>      <th>feat_to_remove</th>      <th>feat_select</th>      <th>best_estimator</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>5</td>      <td>0.964706</td>      <td>0.891667</td>      <td>4</td>      <td>[feature3, feature4, feature2, feature1, feature5]</td>      <td>[feature3, feature4, feature2, feature1]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>1</th>      <td>1</td>      <td>0.788235</td>      <td>0.791667</td>      <td>0</td>      <td>[feature5]</td>      <td>[]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>  </tbody></table><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">plot_report</span><span class="p">()</span>
+<table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>n_feat</th>      <th>train_score</th>      <th>valid_score</th>      <th>n_feat_to_remove</th>      <th>feat_used</th>      <th>feat_to_remove</th>      <th>feat_select</th>      <th>best_estimator</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>5</td>      <td>0.964706</td>      <td>0.891667</td>      <td>1</td>      <td>[feature3, feature5, feature1, feature2, feature4]</td>      <td>[feature3]</td>      <td>[feature5, feature1, feature2, feature4]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>1</th>      <td>4</td>      <td>0.964706</td>      <td>0.891667</td>      <td>1</td>      <td>[feature4, feature5, feature2, feature1]</td>      <td>[feature4]</td>      <td>[feature5, feature2, feature1]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>2</th>      <td>3</td>      <td>0.982353</td>      <td>0.925000</td>      <td>1</td>      <td>[feature2, feature5, feature1]</td>      <td>[feature2]</td>      <td>[feature5, feature1]</td>      <td>LogisticRegression(C=1)</td>    </tr>    <tr>      <th>3</th>      <td>2</td>      <td>0.817647</td>      <td>0.750000</td>      <td>1</td>      <td>[feature1, feature5]</td>      <td>[feature1]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>    <tr>      <th>4</th>      <td>1</td>      <td>0.788235</td>      <td>0.791667</td>      <td>0</td>      <td>[feature5]</td>      <td>[]</td>      <td>[feature5]</td>      <td>LogisticRegression(C=0.1)</td>    </tr>  </tbody></table><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fe</span><span class="o">.</span><span class="n">plot_report</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="build/images/plot_elimination.png" src="build/images/plot_elimination.png" />
