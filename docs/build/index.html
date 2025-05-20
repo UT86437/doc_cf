@@ -41,9 +41,9 @@
             
   <section id="documentazione-ce-feste">
 <h1>Documentazione CE-FeSTE<a class="headerlink" href="#documentazione-ce-feste" title="Link to this heading">¶</a></h1>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>C**redito <a href="#id3"><span class="problematic" id="id4">**</span></a>E**miliano -  <a href="#id5"><span class="problematic" id="id6">**</span></a>Fe**ature <a href="#id7"><span class="problematic" id="id8">**</span></a>S**election, <a href="#id9"><span class="problematic" id="id10">**</span></a>T**ransformation and <a href="#id11"><span class="problematic" id="id12">**</span></a>E**limination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori. I moduli principali sono:</p>
-<p><strong>Analisi delle Feature:</strong> Rappresenta la classe madre dei moduli di selezione ed eliminazione. Viene fatta un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di statistiche descrittive (media, deviazione standard, percentili e valori minimi e massimi) e la gestione (ottenimento e settaggio) degli attributi della classe.</p>
-<p><strong>Selezione delle Feature:</strong> Viene fatto un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
+<p><strong>C</strong>redito <strong>E</strong>miliano -  <strong>Fe</strong>ature <strong>S</strong>election, <strong>T</strong>ransformation and <strong>E</strong>limination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori. I moduli principali sono:</p>
+<p><strong>Analisi delle Feature:</strong> Rappresenta la classe madre dei moduli di selezione ed eliminazione. Comprende metodi per fare un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di statistiche descrittive (media, deviazione standard, percentili e valori minimi e massimi) e la gestione (getting e setting) degli attributi della classe.</p>
+<p><strong>Selezione delle Feature:</strong> Comprende metodi per fare un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Controllo di feature costanti.</p></li>
@@ -56,7 +56,7 @@
 <li><p>Controllo di feature con potere esplicativo nei confronti del target basso.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Eliminazione delle Feature:</strong> Viene fatta un’eliminazione delle feature in-training, utilizzando una tecnica RFE (Recursive Feature Elimination) basata sui valori SHAP su un modello addestrato ricorsivamente.</p>
+<p><strong>Eliminazione delle Feature:</strong> Comprende metodi per fare un’eliminazione delle feature in-training, utilizzando una tecnica RFE (Recursive Feature Elimination) basata sui valori SHAP su un modello addestrato ricorsivamente.</p>
 <p><strong>Trasformazione delle Feature:</strong> Viene fatta una trasformazione delle feature in base alla classe di Transformer scelta. Le trasformazioni sui dati possono essere:</p>
 <blockquote>
 <div><ul class="simple">
@@ -79,7 +79,7 @@
 <td><p>Classe utilizzata per implementare tecniche di selezione delle feature.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="modules/cefeste.transform.html#module-cefeste.transform" title="cefeste.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.transform</span></code></a></p></td>
-<td><p>Modulo contenente classi utilizzate per implementare  per la trasformazione delle feature.</p></td>
+<td><p>Modulo contenente classi utilizzate per implementare trasformazioni delle feature.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="modules/cefeste.html#module-cefeste" title="cefeste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste</span></code></a></p></td>
 <td><p>Classe utilizzata per implementare tecniche di analisi delle feature.</p></td>
