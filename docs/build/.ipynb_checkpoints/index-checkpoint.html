@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 
-<html lang="en" data-content_root="../">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Documentazione CE-FeSTE &#8212; documentazione_ce-feste  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=def86cc0" />
     
-    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="elimination" href="modules/cefeste.elimination.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="right" >
+          <a href="modules/cefeste.elimination.html" title="elimination"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">documentazione_ce-feste  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Documentazione CE-FeSTE</a></li> 
       </ul>
     </div>  
@@ -37,21 +41,22 @@
             
   <section id="documentazione-ce-feste">
 <h1>Documentazione CE-FeSTE<a class="headerlink" href="#documentazione-ce-feste" title="Link to this heading">¶</a></h1>
-<p>Credito Emiliano - Feature Selection, Transformation and Elimination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori:</p>
-<p><strong>Selezione delle Feature:</strong> Viene fatto un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
+<p><strong>C</strong>redito <strong>E</strong>miliano -  <strong>Fe</strong>ature <strong>S</strong>election, <strong>T</strong>ransformation and <strong>E</strong>limination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori. I moduli principali sono:</p>
+<p><strong>Analisi delle Feature:</strong> Rappresenta la classe madre dei moduli di selezione ed eliminazione. Comprende metodi per fare un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di statistiche descrittive (media, deviazione standard, percentili e valori minimi e massimi) e la gestione (getting e setting) degli attributi della classe.</p>
+<p><strong>Selezione delle Feature:</strong> Comprende metodi per fare un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>Controllo di feature costanti.</p></li>
 <li><p>Controlli di feature con valori mancanti.</p></li>
-<li><p>Controllo di feature con basso numero di valori.</p></li>
+<li><p>Controllo di feature con basso numero di valori unici.</p></li>
 <li><p>Controllo di feature quasi costanti.</p></li>
 <li><p>Controllo di feature correlate.</p></li>
-<li><p>Controlli di feature collineari.</p></li>
+<li><p>Controllo di feature collineari.</p></li>
 <li><p>Controllo di feature con distribuzione diversa tra train e test.</p></li>
 <li><p>Controllo di feature con potere esplicativo nei confronti del target basso.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Eliminazione delle Feature:</strong> Viene fatta un’eliminazione delle feature in-training, calcolando ad ogni addestramento del modello metriche di importanza (valori SHAP) utilizzate come metodo di selezione per l’eliminazione di tali feature, utilizzando la tecnica RFE (Recursive Feature Elimination).</p>
+<p><strong>Eliminazione delle Feature:</strong> Comprende metodi per fare un’eliminazione delle feature in-training, utilizzando una tecnica RFE (Recursive Feature Elimination) basata sui valori SHAP su un modello addestrato ricorsivamente.</p>
 <p><strong>Trasformazione delle Feature:</strong> Viene fatta una trasformazione delle feature in base alla classe di Transformer scelta. Le trasformazioni sui dati possono essere:</p>
 <blockquote>
 <div><ul class="simple">
@@ -60,24 +65,23 @@
 <li><p>Ridenominazione di colonne.</p></li>
 <li><p>Conversioni di colonne in valori binari.</p></li>
 <li><p>Trasformazione logaritmica dei valori.</p></li>
-<li><p>Trasformazione degli outlier basata sui quantili.</p></li>
+<li><p>Gestione degli outlier basata sui quantili con tecniche di capping.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Analisi delle Feature:</strong> Viene fatta un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di metriche relative ai valori (media, deviazione standard, percentili e valori minimi e massimi). I metodi contenuti all’interno della classe di questo modulo possono essere utilizzati anche dalle classe dei moduli di Selezione ed Eliminazione.</p>
 <section id="moduli">
 <h2>Moduli<a class="headerlink" href="#moduli" title="Link to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../modules/cefeste.elimination.html#module-cefeste.elimination" title="cefeste.elimination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.elimination</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/cefeste.elimination.html#module-cefeste.elimination" title="cefeste.elimination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.elimination</span></code></a></p></td>
 <td><p>Classe utilizzata per implementare tecniche di eliminazione delle feature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../modules/cefeste.selection.html#module-cefeste.selection" title="cefeste.selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.selection</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/cefeste.selection.html#module-cefeste.selection" title="cefeste.selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.selection</span></code></a></p></td>
 <td><p>Classe utilizzata per implementare tecniche di selezione delle feature.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../modules/cefeste.transform.html#module-cefeste.transform" title="cefeste.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.transform</span></code></a></p></td>
-<td><p>Modulo contenente classi utilizzate per implementare  per la trasformazione delle feature.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="modules/cefeste.transform.html#module-cefeste.transform" title="cefeste.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.transform</span></code></a></p></td>
+<td><p>Modulo contenente classi utilizzate per implementare trasformazioni delle feature.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../modules/cefeste.html#module-cefeste" title="cefeste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="modules/cefeste.html#module-cefeste" title="cefeste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste</span></code></a></p></td>
 <td><p>Classe utilizzata per implementare tecniche di analisi delle feature.</p></td>
 </tr>
 </tbody>
@@ -205,9 +209,9 @@
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
 <ul class="simple">
-<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
 </section>
 
@@ -219,7 +223,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
   <div>
-    <h3><a href="../index.html">Table of Contents</a></h3>
+    <h3><a href="#">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Documentazione CE-FeSTE</a><ul>
 <li><a class="reference internal" href="#moduli">Moduli</a></li>
@@ -230,17 +234,22 @@
 </ul>
 
   </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="modules/cefeste.elimination.html"
+                          title="next chapter">elimination</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/.ipynb_checkpoints/index-checkpoint.rst.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
+    <form class="search" action="search.html" method="get">
       <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
@@ -255,12 +264,15 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
+          <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="right" >
+          <a href="modules/cefeste.elimination.html" title="elimination"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">documentazione_ce-feste  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Documentazione CE-FeSTE</a></li> 
       </ul>
     </div>
