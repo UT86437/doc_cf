@@ -54,7 +54,7 @@
 <p>Questo metodo prepara i dati, valida i gruppi per la CV (se presenti), identifica le feature categoriche per OHE (se richiesto), e infine esegue l’eliminazione ricorsiva delle feature. Il report risultante viene memorizzato nell’attributo <cite>report</cite>.</p>
 <p>La <strong>RFE</strong> seleziona le feature per un modello con il seguente processo iterativo:</p>
 <ul class="simple">
-<li><p>Addestra un modello ottimizzandone gli iperparametri del modello tramite Cross-Validation.</p></li>
+<li><p>Addestra un modello ottimizzandone gli iperparametri tramite Cross-Validation.</p></li>
 <li><p>Calcola l’importanza di ogni feature usando i valori SHAP.</p></li>
 <li><p>Rimuove le feature meno importanti.</p></li>
 <li><p>Ripete i passaggi finché non rimane il numero desiderato di feature (o finchè non vi è una decrescita critica nelle performance).</p></li>
