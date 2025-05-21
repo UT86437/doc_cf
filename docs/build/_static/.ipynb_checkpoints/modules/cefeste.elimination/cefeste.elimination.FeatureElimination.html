@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureElimination &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureelimination">
+<h1>FeatureElimination<a class="headerlink" href="#featureelimination" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cefeste.elimination.FeatureElimination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cefeste.elimination.</span></span><span class="sig-name descname"><span class="pre">FeatureElimination</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_col</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_to_check=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_col=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_train_value=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algo_type='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_funct=&lt;class</span> <span class="pre">'sklearn.model_selection._search.RandomizedSearchCV'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_scoring='auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter=20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">manage_groups=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cv_type=StratifiedKFold(n_splits=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state=42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle=True)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ohe=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size=0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_n_feat_step=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final_n_feature=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_final=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_substep=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_cat_threshold=10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.elimination.FeatureElimination" title="Link to this definition">¶</a></dt>
+<dd><p>Classe utilizzata per implementare tecniche di eliminazione delle feature.</p>
+<p>Questa classe orchestra il processo di Recursive Feature Elimination (RFE) utilizzando i valori SHAP come metrica di importanza delle feature. Gestisce la preparazione dei dati, la cross-validation, l’ottimizzazione degli iperparametri (opzionale), l’applicazione di OHE (opzionale) e la selezione finale delle feature basata su diverse regole.</p>
+<p>La classe applica un meccanismo di Feature Selection in-training, ovvero un modello viene addestrato in modo iterativo e ad ogni iterazione viene calcolato l’impatto che le feature hanno sulle predizioni del modello, quindi vengono tolte le feature che hanno un impatto minore finchè non vi è una descrescita critica sulle performance del modello.</p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.__init__.html#cefeste.elimination.FeatureElimination.__init__" title="cefeste.elimination.FeatureElimination.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a></p></td>
+<td><p>Inizializza l'istanza di FeatureElimination.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.eda.html#cefeste.elimination.FeatureElimination.eda" title="cefeste.elimination.FeatureElimination.eda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eda</span></code></a></p></td>
+<td><p>Genera un'analisi esplorativa dei dati (EDA) di base.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.extract_features.html#cefeste.elimination.FeatureElimination.extract_features" title="cefeste.elimination.FeatureElimination.extract_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_features</span></code></a></p></td>
+<td><p>Estrae la lista finale delle feature selezionate in base a una regola specificata.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_X_original.html#cefeste.elimination.FeatureElimination.get_X_original" title="cefeste.elimination.FeatureElimination.get_X_original"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_X_original</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> originale contenente solo le feature inizialmente considerate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_X_reduced.html#cefeste.elimination.FeatureElimination.get_X_reduced" title="cefeste.elimination.FeatureElimination.get_X_reduced"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_X_reduced</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> contenente solo le feature finali selezionate.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_db_filtered.html#cefeste.elimination.FeatureElimination.get_db_filtered" title="cefeste.elimination.FeatureElimination.get_db_filtered"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_db_filtered</span></code></a></p></td>
+<td><p>Restituisce il <cite>DataFrame</cite> originale senza le feature eliminate.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_params.html#cefeste.elimination.FeatureElimination.get_params" title="cefeste.elimination.FeatureElimination.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a></p></td>
+<td><p>Restituisce il valore di uno o più attributi della classe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.make_report.html#cefeste.elimination.FeatureElimination.make_report" title="cefeste.elimination.FeatureElimination.make_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_report</span></code></a></p></td>
+<td><p>Esegue il processo SHAP RFE e genera il report delle performance per ogni iterazione.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cefeste.elimination.FeatureElimination.plot_report.html#cefeste.elimination.FeatureElimination.plot_report" title="cefeste.elimination.FeatureElimination.plot_report"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_report</span></code></a></p></td>
+<td><p>Genera un grafico delle performance (train e validation score) rispetto al numero di feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../../../modules/cefeste.elimination/cefeste.elimination.FeatureElimination.set_params.html#cefeste.elimination.FeatureElimination.set_params" title="cefeste.elimination.FeatureElimination.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a></p></td>
+<td><p>Imposta il valore di uno o più attributi della classe.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureElimination</a><ul>
+<li><a class="reference internal" href="#cefeste.elimination.FeatureElimination"><code class="docutils literal notranslate"><span class="pre">FeatureElimination</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.elimination/cefeste.elimination.FeatureElimination.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureElimination</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

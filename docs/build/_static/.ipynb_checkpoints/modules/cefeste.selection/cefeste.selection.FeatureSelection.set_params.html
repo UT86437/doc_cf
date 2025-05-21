@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureSelection.set_params &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.set_params</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureselection-set-params">
+<h1>FeatureSelection.set_params<a class="headerlink" href="#featureselection-set-params" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.selection.FeatureSelection.set_params">
+<span class="sig-prename descclassname"><span class="pre">FeatureSelection.</span></span><span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exceptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection.set_params" title="Link to this definition">¶</a></dt>
+<dd><p>Imposta il valore di uno o più attributi della classe.</p>
+<p>(Metodo importato dalla classe <a class="reference internal" href="../../../modules/cefeste/cefeste.FeatureAnalysis.html#cefeste.FeatureAnalysis" title="cefeste.FeatureAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeatureAnalysis</span></code></a>)</p>
+<p>Questo metodo permette di modificare gli attributi dell’istanza. È possibile specificare una lista di attributi che non devono essere sovrascritti tramite il parametro <cite>exceptions</cite>. Se si tenta di sovrascrivere un attributo “protetto”, verrà emesso un <cite>warning</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exceptions</strong> (<cite>list</cite>, optional) – Una lista di stringhe, dove ogni stringa è il nome di un attributo che non può essere sovrascritto. Default: <cite>None</cite>.</p></li>
+<li><p><strong>**kwargs</strong> – Argomenti chiave-valore dove la chiave è il nome dell’attributo da impostare e il valore è il nuovo valore per quell’attributo.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeatureAnalysis</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#from cefeste.selection import FeatureSelection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#from cefeste.elimination import FeatureElimination</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span> <span class="o">=</span> <span class="n">FeatureAnalysis</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#analyzer = FeatureSelection(df)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1">#analyzer = FeatureElimination(df)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">feat_to_check</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">feat_to_check</span>
+<span class="go">[&#39;col1&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">analyzer</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">exceptions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;db&#39;</span><span class="p">],</span> <span class="n">db</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># Tenta di sovrascrivere &#39;db&#39;</span>
+<span class="go">UserWarning: Il parametro &#39;db&#39; non può essere sovrascritto.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureSelection.set_params</a><ul>
+<li><a class="reference internal" href="#cefeste.selection.FeatureSelection.set_params"><code class="docutils literal notranslate"><span class="pre">FeatureSelection.set_params()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.selection/cefeste.selection.FeatureSelection.set_params.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.set_params</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

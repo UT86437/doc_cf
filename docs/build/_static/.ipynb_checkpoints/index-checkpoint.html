@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documentazione CE-FeSTE &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=def86cc0" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Documentazione CE-FeSTE</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="documentazione-ce-feste">
+<h1>Documentazione CE-FeSTE<a class="headerlink" href="#documentazione-ce-feste" title="Link to this heading">¶</a></h1>
+<p><strong>C</strong>redito <strong>E</strong>miliano -  <strong>Fe</strong>ature <strong>S</strong>election, <strong>T</strong>ransformation and <strong>E</strong>limination (CE - FeSTE) è una libreria che si propone di gestire vari aspetti riguardo la manipolazione delle feature dei dati utilizzati negli algoritmi di machine learning attraverso diversi moduli, aiutando l’utente ad ottenere un dataset finale che possa essere usato per raggiungere delle performance migliori. I moduli principali sono:</p>
+<p><strong>Analisi delle Feature:</strong> Rappresenta la classe madre dei moduli di selezione ed eliminazione. Comprende metodi per fare un’analisi di base delle feature, che comprende un conteggio dei valori e, se si tratta di una feature numerica, una lista di statistiche descrittive (media, deviazione standard, percentili e valori minimi e massimi) e la gestione (getting e setting) degli attributi della classe.</p>
+<p><strong>Selezione delle Feature:</strong> Comprende metodi per fare un filtraggio delle feature prima della fase di training basandosi su metriche strutturali delle feature stesse. I filtri utilizzati sono:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Controllo di feature costanti.</p></li>
+<li><p>Controllo di feature con valori mancanti.</p></li>
+<li><p>Controllo di feature con basso numero di valori unici.</p></li>
+<li><p>Controllo di feature quasi costanti.</p></li>
+<li><p>Controllo di feature correlate.</p></li>
+<li><p>Controllo di feature collineari.</p></li>
+<li><p>Controllo di feature con distribuzione diversa tra train e test.</p></li>
+<li><p>Controllo di feature con potere esplicativo nei confronti del target basso.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Eliminazione delle Feature:</strong> Comprende metodi per fare un’eliminazione delle feature in-training, utilizzando una tecnica RFE (Recursive Feature Elimination) basata sui valori SHAP su un modello addestrato ricorsivamente.</p>
+<p><strong>Trasformazione delle Feature:</strong> Viene fatta una trasformazione delle feature in base alla classe di Transformer scelta. Le trasformazioni sui dati possono essere:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Conversione di colonne categoriche nel formato ‘category’.</p></li>
+<li><p>Estrazione di un particolare sottoinsieme di colonne.</p></li>
+<li><p>Ridenominazione di colonne.</p></li>
+<li><p>Conversioni di colonne in valori binari.</p></li>
+<li><p>Trasformazione logaritmica dei valori.</p></li>
+<li><p>Gestione degli outlier basata sui quantili con tecniche di capping.</p></li>
+</ul>
+</div></blockquote>
+<section id="moduli">
+<h2>Moduli<a class="headerlink" href="#moduli" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/cefeste.elimination.html#module-cefeste.elimination" title="cefeste.elimination"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.elimination</span></code></a></p></td>
+<td><p>Classe utilizzata per implementare tecniche di eliminazione delle feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/cefeste.selection.html#module-cefeste.selection" title="cefeste.selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.selection</span></code></a></p></td>
+<td><p>Classe utilizzata per implementare tecniche di selezione delle feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../modules/cefeste.transform.html#module-cefeste.transform" title="cefeste.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste.transform</span></code></a></p></td>
+<td><p>Modulo contenente classi utilizzate per implementare trasformazioni delle feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../modules/cefeste.html#module-cefeste" title="cefeste"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cefeste</span></code></a></p></td>
+<td><p>Classe utilizzata per implementare tecniche di analisi delle feature.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="contenuti">
+<h2>Contenuti<a class="headerlink" href="#contenuti" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/cefeste.elimination.html">elimination</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.html">FeatureElimination</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.html#cefeste.elimination.FeatureElimination"><code class="docutils literal notranslate"><span class="pre">FeatureElimination</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.__init__.html">FeatureElimination.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.eda.html">FeatureElimination.eda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.extract_features.html">FeatureElimination.extract_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_X_original.html">FeatureElimination.get_X_original</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_X_reduced.html">FeatureElimination.get_X_reduced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_db_filtered.html">FeatureElimination.get_db_filtered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.get_params.html">FeatureElimination.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.make_report.html">FeatureElimination.make_report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.plot_report.html">FeatureElimination.plot_report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.elimination/cefeste.elimination.FeatureElimination.set_params.html">FeatureElimination.set_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cefeste.selection.html">selection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.html">FeatureSelection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.html#cefeste.selection.FeatureSelection"><code class="docutils literal notranslate"><span class="pre">FeatureSelection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.__init__.html">FeatureSelection.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.eda.html">FeatureSelection.eda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_collinear_feature_optimized.html">FeatureSelection.find_collinear_feature_optimized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_constant_features.html">FeatureSelection.find_constant_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_correlated_features.html">FeatureSelection.find_correlated_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_high_topcat_features.html">FeatureSelection.find_high_topcat_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_low_nvalues_features.html">FeatureSelection.find_low_nvalues_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_missing_features.html">FeatureSelection.find_missing_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_not_explanatory.html">FeatureSelection.find_not_explanatory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.find_unstable_psi_features.html">FeatureSelection.find_unstable_psi_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.get_X_original.html">FeatureSelection.get_X_original</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.get_X_reduced.html">FeatureSelection.get_X_reduced</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.get_db_filtered.html">FeatureSelection.get_db_filtered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.get_params.html">FeatureSelection.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.make_funnel.html">FeatureSelection.make_funnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.make_report.html">FeatureSelection.make_report</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.run.html">FeatureSelection.run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.selection/cefeste.selection.FeatureSelection.set_params.html">FeatureSelection.set_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cefeste.transform.html">transform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.html">Categorizer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.html#cefeste.transform.Categorizer"><code class="docutils literal notranslate"><span class="pre">Categorizer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.__init__.html">Categorizer.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.fit.html">Categorizer.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.fit_transform.html">Categorizer.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Categorizer.transform.html">Categorizer.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.html">ColumnExtractor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.html#cefeste.transform.ColumnExtractor"><code class="docutils literal notranslate"><span class="pre">ColumnExtractor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.__init__.html">ColumnExtractor.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.fit.html">ColumnExtractor.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.fit_transform.html">ColumnExtractor.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnExtractor.transform.html">ColumnExtractor.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.html">ColumnRenamer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.html#cefeste.transform.ColumnRenamer"><code class="docutils literal notranslate"><span class="pre">ColumnRenamer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.__init__.html">ColumnRenamer.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.fit.html">ColumnRenamer.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.fit_transform.html">ColumnRenamer.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ColumnRenamer.transform.html">ColumnRenamer.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.html">Dummitizer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.html#cefeste.transform.Dummitizer"><code class="docutils literal notranslate"><span class="pre">Dummitizer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.__init__.html">Dummitizer.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.fit.html">Dummitizer.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.fit_transform.html">Dummitizer.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.get_params.html">Dummitizer.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.set_params.html">Dummitizer.set_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.Dummitizer.transform.html">Dummitizer.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.html">LogTransformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.html#cefeste.transform.LogTransformer"><code class="docutils literal notranslate"><span class="pre">LogTransformer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.__init__.html">LogTransformer.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.fit.html">LogTransformer.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.fit_transform.html">LogTransformer.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.get_params.html">LogTransformer.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.set_params.html">LogTransformer.set_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.LogTransformer.transform.html">LogTransformer.transform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.html">ManageOutlier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.html#cefeste.transform.ManageOutlier"><code class="docutils literal notranslate"><span class="pre">ManageOutlier</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.__init__.html">ManageOutlier.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.fit.html">ManageOutlier.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.fit_transform.html">ManageOutlier.fit_transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.get_params.html">ManageOutlier.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.set_params.html">ManageOutlier.set_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste.transform/cefeste.transform.ManageOutlier.transform.html">ManageOutlier.transform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cefeste.html">cefeste</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.html">FeatureAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.html#cefeste.FeatureAnalysis"><code class="docutils literal notranslate"><span class="pre">FeatureAnalysis</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.__init__.html">FeatureAnalysis.__init__</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.eda.html">FeatureAnalysis.eda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.get_params.html">FeatureAnalysis.get_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cefeste/cefeste.FeatureAnalysis.set_params.html">FeatureAnalysis.set_params</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Documentazione CE-FeSTE</a><ul>
+<li><a class="reference internal" href="#moduli">Moduli</a></li>
+<li><a class="reference internal" href="#contenuti">Contenuti</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/.ipynb_checkpoints/index-checkpoint.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Documentazione CE-FeSTE</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

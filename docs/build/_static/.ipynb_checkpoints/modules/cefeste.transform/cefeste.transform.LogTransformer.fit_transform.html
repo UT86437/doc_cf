@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LogTransformer.fit_transform &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LogTransformer.fit_transform</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="logtransformer-fit-transform">
+<h1>LogTransformer.fit_transform<a class="headerlink" href="#logtransformer-fit-transform" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.transform.LogTransformer.fit_transform">
+<span class="sig-prename descclassname"><span class="pre">LogTransformer.</span></span><span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.transform.LogTransformer.fit_transform" title="Link to this definition">¶</a></dt>
+<dd><p>Esegue fit e transform in un unico passaggio.</p>
+<p>Poiché <cite>fit</cite> non esegue operazioni, questo metodo è equivalente a chiamare direttamente <cite>transform</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<cite>np.array</cite>/<cite>pd.DataFrame</cite>) – I dati di input da trasformare.</p></li>
+<li><p><strong>y</strong> (<cite>np.array</cite>/<cite>pd.Series</cite>, optional) – La variabile target. Ignorata. Default: <cite>None</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un <cite>DataFrame pandas</cite> con le colonne trasformate.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>pd.DataFrame</cite></p>
+</dd>
+</dl>
+<p><strong>Esempio:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">cefeste.transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogTransformer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log_transformer_all_e</span> <span class="o">=</span> <span class="n">LogTransformer</span><span class="p">(</span><span class="n">log_base</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">)</span> <span class="c1"># Log naturale su tutte</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_transformed_all</span> <span class="o">=</span> <span class="n">log_transformer_all_e</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df_transformed_all</span>
+</pre></div>
+</div>
+<style>
+       /* Stile base per la tabella con la nostra classe specifica */
+       .jupyter-style-table {
+           border-collapse: collapse; /* Bordi uniti */
+           margin: 1em 0; /* Margine sopra/sotto */
+           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Font simile a Jupyter */
+           font-size: 0.9em; /* Dimensione font leggermente ridotta */
+           border: 1px solid #d3d3d3; /* Bordo esterno leggero */
+           width: auto; /* Larghezza basata sul contenuto */
+           max-width: 100%; /* Non superare il contenitore */
+           overflow-x: auto; /* Abilita lo scroll orizzontale se necessario (meglio sul wrapper, ma ok qui) */
+           display: block; /* Necessario per far funzionare overflow-x su una tabella */
+       }
+
+       /* Stile per le celle dell'header (th) */
+       .jupyter-style-table thead th {
+           background-color: #f5f5f5; /* Sfondo grigio chiaro per header */
+           font-weight: bold; /* Grassetto */
+           padding: 8px 10px; /* Padding interno */
+           text-align: right; /* Allineamento testo (spesso a destra per numeri/default) */
+           border-bottom: 1px solid #d3d3d3; /* Linea sotto l'header */
+           vertical-align: bottom; /* Allineamento verticale */
+       }
+
+       /* Stile per le celle dei dati (td) */
+       .jupyter-style-table tbody td {
+           padding: 6px 10px; /* Padding interno */
+           text-align: right; /* Allineamento testo (aggiusta se hai testo a sinistra) */
+           border-right: 1px solid #d3d3d3; /* Linea verticale tra celle (opzionale) */
+           border-top: 1px solid #d3d3d3; /* Linea orizzontale tra righe */
+           vertical-align: middle; /* Allineamento verticale */
+       }
+       .jupyter-style-table tbody td:last-child {
+           border-right: none; /* Rimuovi bordo destro sull'ultima cella */
+       }
+
+       /* Stile per l'header dell'indice (se presente) */
+       .jupyter-style-table thead th.blank { /* Header vuoto sopra l'indice */
+           background-color: white;
+           border: none;
+       }
+       .jupyter-style-table tbody th { /* Celle dell'indice nel body */
+           padding: 6px 10px;
+           text-align: right;
+           font-weight: normal;
+           border-right: 1px solid #d3d3d3;
+           border-top: 1px solid #d3d3d3;
+           background-color: #f5f5f5; /* Sfondo leggero per indice */
+       }
+
+
+       /* Striping delle righe (alternanza colori) */
+       .jupyter-style-table tbody tr:nth-child(even) {
+           background-color: #f9f9f9; /* Sfondo molto leggero per righe pari */
+       }
+
+       /* Effetto Hover (cambio colore al passaggio del mouse) */
+       .jupyter-style-table tbody tr:hover {
+           background-color: #f0f0f0; /* Sfondo leggermente più scuro su hover */
+       }
+    </style>
+    <table border="0" class="jupyter-style-table">  <thead>    <tr style="text-align: right;">      <th></th>      <th>A</th>      <th>B</th>    </tr>  </thead>  <tbody>    <tr>      <th>0</th>      <td>0.000000</td>      <td>0.693147</td>    </tr>    <tr>      <th>1</th>      <td>2.302585</td>      <td>2.995732</td>    </tr>    <tr>      <th>2</th>      <td>4.605170</td>      <td>5.298317</td>    </tr>    <tr>      <th>3</th>      <td>6.907755</td>      <td>7.600902</td>    </tr>  </tbody></table></dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">LogTransformer.fit_transform</a><ul>
+<li><a class="reference internal" href="#cefeste.transform.LogTransformer.fit_transform"><code class="docutils literal notranslate"><span class="pre">LogTransformer.fit_transform()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.transform/cefeste.transform.LogTransformer.fit_transform.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LogTransformer.fit_transform</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>

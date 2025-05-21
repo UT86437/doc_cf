@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FeatureSelection.__init__ &#8212; documentazione_ce-feste  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/classic.css?v=def86cc0" />
+    
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.__init__</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="featureselection-init">
+<h1>FeatureSelection.__init__<a class="headerlink" href="#featureselection-init" title="Link to this heading">¶</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="cefeste.selection.FeatureSelection.__init__">
+<span class="sig-prename descclassname"><span class="pre">FeatureSelection.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feat_to_check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algo_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_col</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_train_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_unique_val</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pct_missing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pct_mfv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_psi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_bin_min_pct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">explanatory_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correlation_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection_rule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'random'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vif_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collinear_optimize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_selection_history</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_cat_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cefeste.selection.FeatureSelection.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Inizializza l’oggetto FeatureSelection con dati e parametri di configurazione.</p>
+<p>Questo costruttore imposta il <cite>DataFrame</cite> da analizzare, le feature da considerare, la colonna target (se presente), la colonna per la suddivisione in campioni (es. train/test), il tipo di algoritmo di machine learning (per guidare alcune selezioni) e varie soglie e parametri per i diversi passaggi di filtraggio delle feature. Inizializza anche attributi interni per memorizzare i risultati di ogni fase di selezione e lo stato generale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>db</strong> (<cite>pd.DataFrame</cite>) – <cite>DataFrame</cite> da analizzare.</p></li>
+<li><p><strong>feat_to_check</strong> (<cite>list</cite>, optional) – Lista delle feature da analizzare. Se <cite>None</cite>, vengono utilizzate tutte le colonne tranne <cite>target_col</cite> e <cite>sample_col</cite>. Default: <cite>None</cite>.</p></li>
+<li><p><strong>target_col</strong> (<cite>str</cite>, optional) – Nome della colonna target. Necessario per i filtri basati sul potere esplicativo. Default: <cite>None</cite>.</p></li>
+<li><p><strong>algo_type</strong> (<cite>str</cite>, optional) – Tipo di algoritmo di machine learning. Può essere ‘auto’, ‘regression’, ‘classification’, ‘multiclass’, ‘unsupervised’. Se ‘auto’ e <cite>target_col</cite> è specificato, il tipo viene calcolato in base al numero di valori unici del target. Default: “auto”.</p></li>
+<li><p><strong>sample_col</strong> (<cite>str</cite>, optional) – Nome della colonna che indica se i campioni appartengono a ‘train’ o ‘test’. Usato per l’analisi di stabilità (PSI) e per applicare alcuni filtri solo sul campione di training. Default: <cite>None</cite>.</p></li>
+<li><p><strong>sample_train_value</strong> (<cite>str</cite>, optional) – Valore nella <cite>sample_col</cite> che identifica il set di training. Necessario se <cite>sample_col</cite> è specificato e si desidera applicare filtri specifici al training set. Default: <cite>None</cite>.</p></li>
+<li><p><strong>min_unique_val</strong> (<cite>int</cite>, optional) – Numero minimo di valori unici che una feature deve avere per non essere considerata “low_values”. Default: 3.</p></li>
+<li><p><strong>max_pct_missing</strong> (<cite>float</cite>, optional) – Percentuale massima di valori mancanti tollerata in una feature. Default: 0.9.</p></li>
+<li><p><strong>max_pct_mfv</strong> (<cite>float</cite>, optional) – Percentuale massima della frequenza tollerata dei valori di una feature. Default: 0.95.</p></li>
+<li><p><strong>max_psi</strong> (<cite>float</cite>, optional) – Valore massimo di Population Stability Index (PSI) tollerato tra le distribuzioni del training con il test. Default: 0.2.</p></li>
+<li><p><strong>psi_nbins</strong> (<cite>int</cite>, optional) – Numero di bin da utilizzare per il calcolo del PSI. Default: 20.</p></li>
+<li><p><strong>psi_bin_min_pct</strong> (<cite>float</cite>, optional) – Percentuale minima di osservazioni per bin nel calcolo del PSI. Default: 0.02.</p></li>
+<li><p><strong>explanatory_threshold</strong> (<cite>float</cite>, optional) – Soglia per il potere esplicativo. Feature con performance (es. AUC, R-squared) inferiori a questa soglia rispetto al target vengono rimosse. Default: 0.05.</p></li>
+<li><p><strong>correlation_threshold</strong> (<cite>float</cite>, optional) – Soglia di correlazione. Feature con correlazione (assoluta) superiore a questa soglia vengono considerate per la rimozione. Default: 0.95.</p></li>
+<li><p><strong>selection_rule</strong> (<cite>str</cite>, optional) – Regola per decidere quale feature rimuovere tra una coppia di feature altamente correlate. Può essere ‘random’ o ‘univ_perf’, ovvero basata sul potere esplicativo rispetto alla variabile target. Default: “random”.</p></li>
+<li><p><strong>vif_threshold</strong> (<cite>int</cite>, optional) – Soglia per il Variance Inflation Factor (VIF). Feature numeriche con VIF superiore a questa soglia vengono considerate per la rimozione a causa della multicollinearità. Default: 5.</p></li>
+<li><p><strong>collinear_optimize</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, tenta di ottimizzare la rimozione delle feature collineari basandosi sulla loro correlazione media o potere esplicativo rispetto alla variabile target. Default: False.</p></li>
+<li><p><strong>return_selection_history</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, memorizza e restituisce la storia dettagliata della selezione delle feature correlate. Default: True.</p></li>
+<li><p><strong>dim_cat_threshold</strong> (<cite>int</cite>, optional) – Soglia di cardinalità per le feature categoriche. Se una feature categorica ha più valori unici di questa soglia, solo le top <cite>dim_cat_threshold</cite> categorie più frequenti vengono codificate con One-Hot Encoding (le altre vengono ignorate). Se <cite>None</cite>, viene applicato One-Hot Encoding standard a tutte le categorie. Default: 10.</p></li>
+<li><p><strong>verbose</strong> (<cite>bool</cite>, optional) – Se <cite>True</cite>, stampa informazioni aggiuntive durante l’esecuzione dei filtri. Default: <cite>True</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Se <cite>algo_type</cite> è ‘auto’ per l’approccio supervisionato, questo verrà determinato in base al numero di valori unici nel target:</p>
+<blockquote>
+<div><p>&lt;=2 -&gt; ‘classification’ (Classificazione Binaria)</p>
+<p>&lt;11 -&gt; ‘multiclass’ (Classificazione Multiclasse)</p>
+<p>&gt;=11 -&gt; ‘regression’ (Regressione)</p>
+</div></blockquote>
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FeatureSelection.__init__</a><ul>
+<li><a class="reference internal" href="#cefeste.selection.FeatureSelection.__init__"><code class="docutils literal notranslate"><span class="pre">FeatureSelection.__init__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/.ipynb_checkpoints/modules/cefeste.selection/cefeste.selection.FeatureSelection.__init__.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">documentazione_ce-feste  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FeatureSelection.__init__</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Team AIS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+  </body>
+</html>
